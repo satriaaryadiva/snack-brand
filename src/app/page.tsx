@@ -7,6 +7,7 @@ import StickyProductSection from '@/components/StickyProductSection';
 import ShogunSection from '@/components/ShogunSection';
 import KaaroSection from '@/components/KaaroSection';
 import BrandStorySection from '@/components/BrandStorySection';
+import CertificationSection from '@/components/CertificationSection';
 import KaaroStorySection from '@/components/KaaroStorySection';
 import TestimonialSection from '@/components/TestimonialSection';
 import CTASection from '@/components/CTASection';
@@ -29,6 +30,7 @@ export default function HomePage() {
         <ShogunSection />
         <KaaroSection />
         <BrandStorySection />
+        <CertificationSection />
         <TestimonialSection />
         <CTASection />
         <Footer />

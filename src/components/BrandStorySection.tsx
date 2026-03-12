@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
@@ -8,18 +8,41 @@ import Image from 'next/image';
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-    { value: '2', label: 'Merek Snack', bg: '#FFE000', icon: '🏷️' },
-    { value: '5+', label: 'Varian Rasa', bg: '#FF2D2D', icon: '🌶️', textColor: '#fff' },
-    { value: '100%', label: 'Halal', bg: '#00C443', icon: '✅', textColor: '#fff' },
-    { value: '4.9★', label: 'Rating Pelanggan', bg: '#00CFFF', icon: '⭐' },
+    { value: '2', label: 'Merek Snack', bg: '#FFE000', icon: '🏷️', textColor: '#020101ff' },
+    { value: '5+', label: 'Varian Rasa', bg: '#FF2D2D', icon: '🌶️', textColor: '#000000ff' },
+    { value: '100%', label: 'Halal', bg: '#00C443', icon: '✅', textColor: '#020101ff' },
+    { value: '4.9★', label: 'Rating Pelanggan', bg: '#00CFFF', icon: '⭐', textColor: '#020101ff' },
 ];
 
-const galleryImages = [
-    { src: '/FOTO PRODUCT/DSCF5838.jpg', alt: 'Shogun box stack', tall: true },
-    { src: '/FOTO PRODUCT/DSC00044.jpg', alt: 'Kaaro product' },
-    { src: '/FOTO PRODUCT/DSC04373.jpg', alt: 'Shogun lineup' },
-    { src: '/FOTO PRODUCT/DSC04386.jpg', alt: 'Shogun open bag' },
-    { src: '/FOTO PRODUCT/DSC00048.jpg', alt: 'Kaaro noodle pack' },
+const galleryImagesGroups = [
+    [
+        { src: '/FOTO PRODUCT/DSCF5838.jpg', alt: 'Shogun box stack', tall: true },
+        { src: '/FOTO PRODUCT/DSC00044.jpg', alt: 'Kaaro product' },
+        { src: '/FOTO PRODUCT/DSC04373.jpg', alt: 'Shogun lineup' },
+        { src: '/FOTO PRODUCT/DSC04386.jpg', alt: 'Shogun open bag' },
+        { src: '/FOTO PRODUCT/DSC00048.jpg', alt: 'Kaaro noodle pack' },
+    ],
+    [
+        { src: '/FOTO PRODUCT/DSCF5861.jpg', alt: 'Shogun variant', tall: true },
+        { src: '/FOTO PRODUCT/DSC04363.jpg', alt: 'Kaaro variant' },
+        { src: '/FOTO PRODUCT/DSC04380.jpg', alt: 'Snack lineup' },
+        { src: '/FOTO PRODUCT/DSCF5873.jpg', alt: 'Delicious snacks' },
+        { src: '/FOTO PRODUCT/DSC04426.jpg', alt: 'Noodle pack' },
+    ],
+    [
+        { src: '/FOTO PRODUCT/DSCF5785.jpg', alt: 'Shogun box stack', tall: true },
+        { src: '/FOTO PRODUCT/DSC00050.jpg', alt: 'Kaaro product' },
+        { src: '/FOTO PRODUCT/DSC04388.jpg', alt: 'Shogun lineup' },
+        { src: '/FOTO PRODUCT/DSCF5844.jpg', alt: 'Shogun open bag' },
+        { src: '/FOTO PRODUCT/DSC04431.jpg', alt: 'Kaaro noodle pack' },
+    ],
+    [
+        { src: '/FOTO PRODUCT/DSCF5865.jpg', alt: 'Shogun flavor', tall: true },
+        { src: '/FOTO PRODUCT/DSC04356.jpg', alt: 'Kaaro flavor' },
+        { src: '/FOTO PRODUCT/DSC04392.jpg', alt: 'Snack arrangement' },
+        { src: '/FOTO PRODUCT/DSCF5770.jpg', alt: 'Yummy snacks' },
+        { src: '/FOTO PRODUCT/DSC04375.jpg', alt: 'Noodle variant' },
+    ]
 ];
 
 export default function BrandStorySection() {
@@ -27,6 +50,14 @@ export default function BrandStorySection() {
     const textRef = useRef<HTMLDivElement>(null);
     const statsRef = useRef<HTMLDivElement>(null);
     const galleryRef = useRef<HTMLDivElement>(null);
+    const [currentGalleryIdx, setCurrentGalleryIdx] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentGalleryIdx((prev) => (prev + 1) % galleryImagesGroups.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -119,43 +150,52 @@ export default function BrandStorySection() {
                             </p>
                         </div>
 
-                        <div className="flex flex-col gap-3">
-                            {[
-                                { icon: '🍜', text: 'Bahan baku berkualitas pilihan' },
-                                { icon: '✅', text: 'Bersertifikat Halal MUI' },
-                                { icon: '🇰🇷', text: 'Terinspirasi cita rasa autentik Korea' },
-                                { icon: '📦', text: 'Berbagai ukuran kemasan tersedia' },
-                            ].map((item, i) => (
-                                <div
-                                    key={i}
-                                    className="flex items-center gap-3 px-4 py-2.5 border-2 border-[#1A1A1A]"
-                                    style={{ background: i % 2 === 0 ? '#FFF9E6' : '#E0F7FF', boxShadow: '3px 3px 0 #1A1A1A' }}
-                                >
-                                    <span className="text-xl">{item.icon}</span>
-                                    <span
-                                        className="text-sm font-bold text-[#1A1A1A]"
-                                        style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive' }}
-                                    >
-                                        {item.text}
-                                    </span>
-                                </div>
-                            ))}
+                        {/* Certificates & Awards Ribbon */}
+                        <div className="flex flex-wrap gap-4 mt-8">
+                            <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#00C443] text-black font-bold flex items-center gap-2 transform -rotate-2 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
+                                <span className="text-2xl filter drop-shadow-md">✅</span> <span className="mt-1">100% HALAL MUI</span>
+                            </div>
+                            <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#FF7A00] text-black font-bold flex items-center gap-2 transform rotate-1 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
+                                <span className="text-2xl filter drop-shadow-md">🛡️</span> <span className="mt-1">BPOM RI</span>
+                            </div>
+                            <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#00CFFF] text-black font-bold flex items-center gap-2 transform -rotate-1 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
+                                <span className="text-2xl filter drop-shadow-md">🏆</span> <span className="mt-1">TOP BRAND 2024</span>
+                            </div>
+                            <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#FF2D2D] text-blackfont-bold flex items-center gap-2 transform rotate-2 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
+                                <span className="text-2xl filter drop-shadow-md">⭐</span> <span className="mt-1">BEST SNACK AWARD</span>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Gallery */}
+                    {/* Gallery Carousel */}
                     <div ref={galleryRef} className="grid grid-cols-2 gap-3" style={{ gridAutoRows: '160px' }}>
-                        {galleryImages.map((img, i) => (
-                            <div
-                                key={i}
-                                className={`g-img relative overflow-hidden border-4 border-[#1A1A1A] ${img.tall ? 'row-span-2' : ''}`}
-                                style={{ boxShadow: '4px 4px 0 #1A1A1A', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
-                                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translate(-2px,-2px)'; (e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0 #1A1A1A'; }}
-                                onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ''; (e.currentTarget as HTMLElement).style.boxShadow = '4px 4px 0 #1A1A1A'; }}
-                            >
-                                <Image src={img.src} alt={img.alt} fill className="object-cover" sizes="(max-width:1024px) 50vw, 25vw" />
-                            </div>
-                        ))}
+                        {[0, 1, 2, 3, 4].map((slotIdx) => {
+                            const isTall = slotIdx === 0;
+                            return (
+                                <div
+                                    key={slotIdx}
+                                    className={`g-img relative overflow-hidden border-4 border-[#1A1A1A] ${isTall ? 'row-span-2' : ''}`}
+                                    style={{ boxShadow: '4px 4px 0 #1A1A1A', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
+                                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translate(-2px,-2px)'; (e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0 #1A1A1A'; }}
+                                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ''; (e.currentTarget as HTMLElement).style.boxShadow = '4px 4px 0 #1A1A1A'; }}
+                                >
+                                    {galleryImagesGroups.map((group, groupIdx) => {
+                                        const img = group[slotIdx];
+                                        const isActive = groupIdx === currentGalleryIdx;
+                                        return (
+                                            <Image
+                                                key={groupIdx}
+                                                src={img.src}
+                                                alt={img.alt}
+                                                fill
+                                                className={`object-cover transition-opacity duration-1000 ease-in-out ${isActive ? 'opacity-100' : 'opacity-0'}`}
+                                                sizes="(max-width:1024px) 50vw, 25vw"
+                                            />
+                                        );
+                                    })}
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>

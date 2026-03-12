@@ -6,7 +6,9 @@ import { gsap } from 'gsap';
 export default function Navbar() {
     const navRef = useRef<HTMLElement>(null);
     const [scrolled, setScrolled] = useState(false);
+    const [hidden, setHidden] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const lastScrollY = useRef(0);
 
     useEffect(() => {
         gsap.fromTo(
@@ -14,10 +16,26 @@ export default function Navbar() {
             { y: -80, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.4)', delay: 0.2 }
         );
-        const onScroll = () => setScrolled(window.scrollY > 40);
-        window.addEventListener('scroll', onScroll);
+
+        const onScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // Set scrolled state for background color change
+            setScrolled(currentScrollY > 40);
+
+            // Hide navbar when scrolling down, show when scrolling up
+            if (currentScrollY > lastScrollY.current && currentScrollY > 100 && !menuOpen) {
+                setHidden(true); // Scrolling down
+            } else if (currentScrollY < lastScrollY.current || currentScrollY <= 100) {
+                setHidden(false); // Scrolling up or at the top
+            }
+
+            lastScrollY.current = currentScrollY;
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
         return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+    }, [menuOpen]);
 
     const navLinks = [
         { href: '#shogun', label: 'Shogun' },
@@ -30,7 +48,8 @@ export default function Navbar() {
     return (
         <nav
             ref={navRef}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform ${hidden ? '-translate-y-full' : 'translate-y-0'
+                } ${scrolled
                     ? 'bg-[#FFF9E6] border-b-4 border-[#1A1A1A] py-2 shadow-[0_4px_0_#1A1A1A]'
                     : 'bg-[#FFE000] border-b-4 border-[#1A1A1A] py-3'
                 }`}
