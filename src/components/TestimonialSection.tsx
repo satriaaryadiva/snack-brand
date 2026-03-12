@@ -184,10 +184,10 @@ export default function TestimonialSection() {
                     </div>
 
                     <div
-                        className="absolute -top-12 md:right-1/4 transform rotate-12 bg-white px-6 py-2 border-4 border-[#1A1A1A]"
+                        className="absolute -bottom-6 -right-2 md:-bottom-10 md:-right-10 transform rotate-12 bg-white px-4 py-1 md:px-6 md:py-2 border-4 border-[#1A1A1A]"
                         style={{
                             fontFamily: 'var(--font-bangers), Bangers, cursive',
-                            fontSize: '4rem',
+                            fontSize: 'clamp(2rem, 5vw, 4rem)',
                             color: '#FF2D2D',
                             boxShadow: '8px 8px 0 #1A1A1A',
                             zIndex: 20

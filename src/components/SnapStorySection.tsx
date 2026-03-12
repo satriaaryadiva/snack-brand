@@ -86,6 +86,7 @@ export default function SnapStorySection() {
                 const headlineEl = panel.querySelector('.story-headline');
                 const floatEls = panel.querySelectorAll('.story-float');
                 const badgeEl = panel.querySelector('.story-badge');
+                const subEl = panel.querySelector('.story-sub');
 
                 // ── Entrance timeline (triggered when panel scrolls into view) ──
                 const tl = gsap.timeline({
@@ -114,7 +115,7 @@ export default function SnapStorySection() {
 
                 // Subtext fade
                 tl.fromTo(
-                    textEl?.querySelector('.story-sub'),
+                    subEl,
                     { opacity: 0, y: 20 },
                     { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
                     '-=0.3'
@@ -337,7 +338,7 @@ export default function SnapStorySection() {
                             </div>
 
                             {/* ── RIGHT: Image panel ── */}
-                            <div className="story-image relative flex items-center justify-center opacity-0">
+                            <div className="story-image relative flex items-center justify-center opacity-0 mt-16 md:mt-0">
                                 {/* Accent square behind image */}
                                 <div
                                     className="absolute w-[260px] h-[300px] md:w-[320px] md:h-[380px] border-4 border-[#1A1A1A]"

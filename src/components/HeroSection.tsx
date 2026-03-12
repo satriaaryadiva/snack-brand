@@ -136,7 +136,7 @@ export default function HeroSection() {
                     </div>
 
                     {/* RIGHT: Products panel */}
-                    <div className="relative w-full flex flex-col items-center justify-center gap-16 lg:gap-24 mt-16 lg:mt-0 order-1 lg:order-2">
+                    <div className="relative w-full flex flex-col items-center justify-center gap-16 lg:gap-24 mt-24 lg:mt-0 order-1 lg:order-2">
 
                         {/* POW! action word */}
                         <div

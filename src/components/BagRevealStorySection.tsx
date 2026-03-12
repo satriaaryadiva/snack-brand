@@ -321,8 +321,8 @@ export default function BagRevealStorySection() {
                                 </p>
                             </div>
                             <div className="flex gap-4 mt-4">
-                                <div className="comic-panel px-4 py-2 border-3 border-[#1A1A1A] bg-[#00C443] text-white font-bold" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.2rem', boxShadow: '3px 3px 0 #1A1A1A' }}>✅ 100% HALAL</div>
-                                <div className="comic-panel px-4 py-2 border-3 border-[#1A1A1A] bg-[#FF7A00] text-white font-bold" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.2rem', boxShadow: '3px 3px 0 #1A1A1A' }}>🔥 SUPER KRIUK</div>
+                                <div className="comic-panel px-4 py-2 border-3 border-[#1A1A1A] bg-[#00C443] text-black font-bold" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.2rem', boxShadow: '3px 3px 0 #1A1A1A' }}>✅ 100% HALAL</div>
+                                <div className="comic-panel px-4 py-2 border-3 border-[#1A1A1A] bg-[#FF7A00] text-black font-bold" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.2rem', boxShadow: '3px 3px 0 #1A1A1A' }}>🔥 SUPER KRIUK</div>
                             </div>
                         </div>
 
