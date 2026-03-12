@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import MagneticButton from './MagneticButton';
 
 export default function Navbar() {
     const navRef = useRef<HTMLElement>(null);
@@ -17,24 +18,30 @@ export default function Navbar() {
             { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.4)', delay: 0.2 }
         );
 
-        const onScroll = () => {
-            const currentScrollY = window.scrollY;
+        let rafId: number;
+
+        const checkScroll = () => {
+            const currentScrollY = window.scrollY || document.documentElement.scrollTop;
 
             // Set scrolled state for background color change
             setScrolled(currentScrollY > 40);
 
             // Hide navbar when scrolling down, show when scrolling up
-            if (currentScrollY > lastScrollY.current && currentScrollY > 100 && !menuOpen) {
+            if (currentScrollY <= 10) {
+                setHidden(false); // Make sure it's visible at the very top
+            } else if (currentScrollY > lastScrollY.current && currentScrollY > 100 && !menuOpen) {
                 setHidden(true); // Scrolling down
-            } else if (currentScrollY < lastScrollY.current || currentScrollY <= 100) {
-                setHidden(false); // Scrolling up or at the top
+            } else if (currentScrollY < lastScrollY.current) {
+                setHidden(false); // Scrolling up
             }
 
             lastScrollY.current = currentScrollY;
+            rafId = requestAnimationFrame(checkScroll);
         };
 
-        window.addEventListener('scroll', onScroll, { passive: true });
-        return () => window.removeEventListener('scroll', onScroll);
+        rafId = requestAnimationFrame(checkScroll);
+
+        return () => cancelAnimationFrame(rafId);
     }, [menuOpen]);
 
     const navLinks = [
@@ -87,17 +94,19 @@ export default function Navbar() {
                 </div>
 
                 {/* CTA */}
-                <a
-                    href="#products"
-                    className="hidden md:inline-flex items-center px-5 py-2 rounded-none text-sm font-bold text-[#1A1A1A] bg-[#FF2D2D] comic-btn comic-btn-red"
-                    style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.1em', fontSize: '1rem', color: '#fff' }}
-                >
-                    🔥 BELI SEKARANG!
-                </a>
+                <div className="hidden md:block">
+                    <MagneticButton
+                        href="#products"
+                        className="inline-flex items-center px-5 py-2 rounded-none text-sm font-bold text-[#1A1A1A] bg-[#FF2D2D] comic-btn comic-btn-red"
+                        style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.1em', fontSize: '1rem', color: '#fff' }}
+                    >
+                        🔥 BELI SEKARANG!
+                    </MagneticButton>
+                </div>
 
                 {/* Mobile hamburger */}
                 <button
-                    className="md:hidden flex flex-col gap-1.5 p-2 border-2 border-[#1A1A1A]"
+                    className="md:hidden flex flex-col gap-1.5 p-2 "
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-label="Toggle menu"
                 >

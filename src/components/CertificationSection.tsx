@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,11 +41,16 @@ const CERTIFICATIONS = [
         rotation: 5,
     }
 ];
+ 
 
 export default function CertificationSection() {
     const sectionRef = useRef<HTMLElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
     const gridRef = useRef<HTMLDivElement>(null);
+    const galleryRef = useRef<HTMLDivElement>(null);
+    const [currentGalleryIdx, setCurrentGalleryIdx] = useState(0);
+
+ 
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -148,62 +154,68 @@ export default function CertificationSection() {
                     </div>
                 </div>
 
-                {/* Certification Grid */}
-                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-                    {CERTIFICATIONS.map((cert) => (
-                        <div
-                            key={cert.id}
-                            className="cert-card relative bg-white border-4 border-[#1A1A1A] p-6 md:p-8 flex flex-col items-center text-center cursor-pointer transition-transform duration-300"
-                            style={{
-                                boxShadow: `8px 8px 0 #1A1A1A`,
-                                transform: `rotate(${cert.rotation}deg)`,
-                            }}
-                            onMouseEnter={(e) => {
-                                gsap.to(e.currentTarget, { scale: 1.05, rotation: 0, duration: 0.3, zIndex: 50 });
-                            }}
-                            onMouseLeave={(e) => {
-                                gsap.to(e.currentTarget, { scale: 1, rotation: cert.rotation, duration: 0.3, zIndex: 10 });
-                            }}
-                        >
-                            {/* Decorative Tape */}
-                            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-16 h-8 bg-[#FF2D2D]/80 border-2 border-[#1A1A1A] rotate-3" />
+                {/* Content Layout: Text/Certs (Left) & Carousel (Right) */}
+                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-stretch">
 
-                            {/* Badge Icon */}
+                    {/* Left Side: Certifications */}
+                    <div ref={gridRef} className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6 pb-12">
+                        {CERTIFICATIONS.map((cert) => (
                             <div
-                                className="w-24 h-24 rounded-full border-4 border-[#1A1A1A] flex items-center justify-center text-5xl mb-6 bg-white z-10"
+                                key={cert.id}
+                                className="cert-card relative bg-white border-4 border-[#1A1A1A] p-6 flex flex-col items-center text-center cursor-pointer transition-transform duration-300"
                                 style={{
-                                    background: cert.color,
-                                    boxShadow: '4px 4px 0 #1A1A1A',
-                                    filter: 'drop-shadow(0px 0px 4px rgba(0,0,0,0.2))'
+                                    boxShadow: `8px 8px 0 #1A1A1A`,
+                                    transform: `rotate(${cert.rotation}deg)`,
+                                }}
+                                onMouseEnter={(e) => {
+                                    gsap.to(e.currentTarget, { scale: 1.05, rotation: 0, duration: 0.3, zIndex: 50 });
+                                }}
+                                onMouseLeave={(e) => {
+                                    gsap.to(e.currentTarget, { scale: 1, rotation: cert.rotation, duration: 0.3, zIndex: 10 });
                                 }}
                             >
-                                <span style={{ filter: 'drop-shadow(2px 2px 0 #1A1A1A)' }}>{cert.icon}</span>
+                                {/* Decorative Tape */}
+                                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-16 h-8 bg-[#FF2D2D]/80 border-2 border-[#1A1A1A] rotate-3" />
+
+                                {/* Badge Icon */}
+                                <div
+                                    className="w-20 h-20 rounded-full border-4 border-[#1A1A1A] flex items-center justify-center text-4xl mb-4 bg-white z-10"
+                                    style={{
+                                        background: cert.color,
+                                        boxShadow: '4px 4px 0 #1A1A1A',
+                                        filter: 'drop-shadow(0px 0px 4px rgba(0,0,0,0.2))'
+                                    }}
+                                >
+                                    <span style={{ filter: 'drop-shadow(2px 2px 0 #1A1A1A)' }}>{cert.icon}</span>
+                                </div>
+
+                                {/* Title */}
+                                <h3
+                                    className="text-xl text-[#1A1A1A] mb-2"
+                                    style={{
+                                        fontFamily: 'var(--font-bangers), Bangers, cursive',
+                                        letterSpacing: '0.05em',
+                                    }}
+                                >
+                                    {cert.title}
+                                </h3>
+
+                                {/* Description */}
+                                <p
+                                    className="text-sm text-[#1A1A1A] leading-relaxed flex-grow"
+                                    style={{
+                                        fontFamily: 'var(--font-comic-neue), Comic Neue, cursive',
+                                        fontWeight: 700
+                                    }}
+                                >
+                                    {cert.desc}
+                                </p>
                             </div>
+                        ))}
+                    </div>
 
-                            {/* Title */}
-                            <h3
-                                className="text-2xl text-[#1A1A1A] mb-4"
-                                style={{
-                                    fontFamily: 'var(--font-bangers), Bangers, cursive',
-                                    letterSpacing: '0.05em',
-                                }}
-                            >
-                                {cert.title}
-                            </h3>
-
-                            {/* Description */}
-                            <p
-                                className="text-[#1A1A1A] leading-relaxed flex-grow"
-                                style={{
-                                    fontFamily: 'var(--font-comic-neue), Comic Neue, cursive',
-                                    fontWeight: 700
-                                }}
-                            >
-                                {cert.desc}
-                            </p>
-
-                        </div>
-                    ))}
+                    {/* Right Side: Collage Carousel */}
+                 
                 </div>
             </div>
         </section>

@@ -185,7 +185,7 @@ export default function HeroSection() {
 
                                 {/* Mascot Top Left Corner */}
                                 <div className="absolute -top-10 -left-10 lg:top-5 lg:-left-36 border-4 border-[#1A1A1A]  overflow-hidden float-y-alt z-30 bg-[#FFD700] w-[100px] h-[100px] md:w-[140px] md:h-[140px]" style={{ boxShadow: '6px 6px 0 #1A1A1A' }}>
-                                    <Image src="/MONSTER BRANDING/KARO 1.jpg" alt="Kaaro Mascot" fill className="object-cover scale-110" />
+                                    <Image src="/MONSTER BRANDING/KARO 1.jpg" alt="Kaaro Mascot" fill priority className="object-cover scale-110" />
                                 </div>
 
                                 {/* Product Image Box */}
@@ -218,7 +218,7 @@ export default function HeroSection() {
 
                                 {/* Mascot Bottom Right Corner */}
                                 <div className="absolute -bottom-10 -right-10 lg:-bottom-16 lg:-right-16 border-4 border-[#1A1A1A]  overflow-hidden float-y z-30 bg-[#FFD700] w-[100px] h-[100px] md:w-[140px] md:h-[140px]" style={{ boxShadow: '6px 6px 0 #1A1A1A' }}>
-                                    <Image src="/MONSTER BRANDING/Monster Shogun.jpg" alt="Shogun Mascot" fill className="object-cover scale-110" />
+                                    <Image src="/MONSTER BRANDING/Monster Shogun.jpg" alt="Shogun Mascot" fill priority className="object-cover scale-110" />
                                 </div>
 
                                 {/* Product Image Box */}

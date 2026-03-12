@@ -219,9 +219,6 @@ body {
   justify-content: center;
   cursor: pointer;
   will-change: transform;
-  border: none;
-  background: transparent;
-  padding: 0;
   text-decoration: none;
 }
 
