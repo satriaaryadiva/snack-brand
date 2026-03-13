@@ -65,6 +65,11 @@ export default function BagRevealStorySection() {
     const bgMidRef = useRef<HTMLDivElement>(null);
     const bgCloseRef = useRef<HTMLDivElement>(null);
 
+    // Intro Elements
+    const introHeadlineRef = useRef<HTMLDivElement>(null);
+    const leftCaptionRef = useRef<HTMLDivElement>(null);
+    const scrollHintRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({
@@ -73,7 +78,7 @@ export default function BagRevealStorySection() {
                     start: 'top top',
                     end: '+=400%', // 4 screens of scrolling
                     pin: true,
-                    scrub: 1,
+                    scrub: 2, // Increased from 1 for smoother interpolation
                 },
             });
 
@@ -85,7 +90,7 @@ export default function BagRevealStorySection() {
                     trigger: sectionRef.current,
                     start: 'top bottom',
                     end: 'bottom top',
-                    scrub: 0.5
+                    scrub: 1.5 // Smoother parallax
                 }
             });
 
@@ -97,7 +102,7 @@ export default function BagRevealStorySection() {
                     trigger: sectionRef.current,
                     start: 'top bottom',
                     end: 'bottom top',
-                    scrub: 1
+                    scrub: 2 // Smoother parallax
                 }
             });
 
@@ -108,30 +113,50 @@ export default function BagRevealStorySection() {
                     trigger: sectionRef.current,
                     start: 'top bottom',
                     end: 'bottom top',
-                    scrub: 1.5
+                    scrub: 2.5 // Smoother parallax
                 }
             });
 
-            // ── Phase 1: Bags & Characters & Logos Enter ──
+            // ── Phase 1: Bags & Logos Enter, Intro Fades Out, Characters Enter ──
+            const startLabel = 'start';
+            tl.add(startLabel, 0);
+
             tl.fromTo([bag1WrapperRef.current, bag2WrapperRef.current, logo1Ref.current, logo2Ref.current],
                 { y: '50vh', scale: 0.6, rotation: (i) => i % 2 === 0 ? -15 : 15 },
                 { y: '0%', scale: 1, rotation: 0, duration: 1, ease: 'power2.out' },
-                0
+                startLabel
             );
+
+            // Intro elements fade out early as characters fly in
+            tl.to([introHeadlineRef.current, leftCaptionRef.current], {
+                opacity: 0,
+                scale: 0.8,
+                y: -20,
+                duration: 0.6,
+                ease: 'power2.in',
+            }, `${startLabel}+=0.1`); // slightly after bags start moving
 
             tl.fromTo(char1Ref.current,
                 { opacity: 0, x: -50, y: 100, scale: 0 },
                 { opacity: 1, x: 0, y: 0, scale: 1, rotation: -10, duration: 1, ease: 'back.out(2)' },
-                0.3
+                `${startLabel}+=0.3`
             );
 
             tl.fromTo(char2Ref.current,
                 { opacity: 0, x: 50, y: 100, scale: 0 },
                 { opacity: 1, x: 0, y: 0, scale: 1, rotation: 10, duration: 1, ease: 'back.out(2)' },
-                0.3
+                `${startLabel}+=0.3`
             );
 
             tl.to({}, { duration: 0.3 }); // Pause
+
+            // ── Phase 1.5: Fade out Scroll Hint Elements ──
+            tl.to(scrollHintRef.current, {
+                opacity: 0,
+                scale: 0.8,
+                duration: 0.6,
+                ease: 'power2.in',
+            }, '-=0.3');
 
             // ── Phase 2: Tear Open Animation ──
             tl.to([bag1TopRef.current, bag2TopRef.current], {
@@ -220,8 +245,8 @@ export default function BagRevealStorySection() {
             <div ref={bgDistantRef} className="absolute inset-[-20%] w-[140%] h-[140%] opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 2px )', backgroundSize: '40px 40px' }} />
 
             {/* Glowing Color Orbs */}
-             
- 
+
+
             <div
                 ref={bgCloseRef}
                 className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -229,7 +254,28 @@ export default function BagRevealStorySection() {
             />
 
             {/* Lightning bolt decorators */}
-        
+
+
+            {/* Top Introductory Quote / Headline */}
+            <div ref={introHeadlineRef} className="absolute top-16 md:top-24 left-0 right-0 w-full flex justify-center z-10 pointer-events-none px-4">
+                <div className="text-center flex flex-col items-center">
+                    <div className="inline-block bg-[#1A1A1A] text-[#FFE000] px-3 py-1 mb-3 font-bold" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '2px', transform: 'rotate(-2deg)' }}>
+                        ★ DISCOVER THE MAGIC ★
+                    </div>
+                    <h2
+                        className="text-[#1A1A1A] leading-[1.1]"
+                        style={{
+                            fontFamily: 'var(--font-bangers), Bangers, cursive',
+                            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                            textShadow: '3px 3px 0 #FFF, 5px 5px 0 #00CFFF',
+                            WebkitTextStroke: '1px #1A1A1A'
+                        }}
+                    >
+                        APA YANG BIKIN MEREKA <br className="hidden md:block" />
+                        <span className="text-[#FF2D2D]" style={{ WebkitTextStroke: '2px #1A1A1A' }}>BEGITU SPESIAL?</span>
+                    </h2>
+                </div>
+            </div>
 
             <div className="absolute inset-0 flex items-center justify-center">
 
@@ -282,7 +328,7 @@ export default function BagRevealStorySection() {
                                     </div>
                                 ))}
                             </div>
-                            <div ref={bag2TopRef} className="bg-transparent absolute inset-0 z-20" style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 25%, 90% 20%, 80% 28%, 70% 18%, 60% 30%, 50% 20%, 40% 30%, 30% 18%, 20% 28%, 10% 20%, 0% 25%)',  }}>
+                            <div ref={bag2TopRef} className="bg-transparent absolute inset-0 z-20" style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 25%, 90% 20%, 80% 28%, 70% 18%, 60% 30%, 50% 20%, 40% 30%, 30% 18%, 20% 28%, 10% 20%, 0% 25%)', }}>
                                 <Image src="/FOTO PRODUCT/bagkaro.png" alt="Kaaro Snack Top" fill className="object-cover scale-140 border-4 border-[#1A1A1A]" style={{ borderRadius: '16px' }} />
                             </div>
                             <div ref={bag2BottomRef} className="absolute inset-0 z-20" style={{ clipPath: 'polygon(0% 25%, 10% 20%, 20% 28%, 30% 18%, 40% 30%, 50% 20%, 60% 30%, 70% 18%, 80% 28%, 90% 20%, 100% 25%, 100% 100%, 0% 100%)' }}>
@@ -333,6 +379,61 @@ export default function BagRevealStorySection() {
                     </div>
                 </div>
 
+                {/* Left Side Caption / Callout */}
+                <div
+                    ref={leftCaptionRef}
+                    className="absolute left-4 md:left-8 top-[40%] md:top-1/2 -translate-y-1/2 z-40 flex flex-col pointer-events-none float-y"
+                    style={{ transform: 'rotate(-5deg)' }}
+                >
+                    <div
+                        className="bg-white border-3 border-[#1A1A1A] px-3 py-2 md:px-5 md:py-3 rounded-2xl relative"
+                        style={{ boxShadow: '4px 4px 0 #FF2D2D' }}
+                    >
+                        <p
+                            className="text-[#1A1A1A] font-bold text-xs md:text-sm text-center leading-tight whitespace-nowrap"
+                            style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive' }}
+                        >
+                            Tarik terus <br /> ke bawah! 👇
+                        </p>
+                        {/* Little tail pointing to the center */}
+                        <div
+                            className="absolute top-1/2 -right-1.5 w-3 h-3 bg-white border-r-3 border-b-3 border-[#1A1A1A] transform -translate-y-1/2 rotate-[-45deg]"
+                            style={{ boxShadow: '2px 2px 0 #FF2D2D' }}
+                        ></div>
+                    </div>
+                </div>
+
+                {/* Scroll Hint Indicators (Right Side) */}
+                <div ref={scrollHintRef} className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4">
+                    <button
+                        className="float-y-alt cursor-pointer hover:scale-110 hover:rotate-180 transition-transform bg-transparent border-none appearance-none"
+                        style={{ filter: 'drop-shadow(4px 4px 0 #1A1A1A)' }}
+                        onClick={() => window.scrollBy({ top: -400, behavior: 'smooth' })}
+                        aria-label="Scroll Up"
+                    >
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="#00C443" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M12 3l8 10h-5v8H9v-8H4z" />
+                        </svg>
+                    </button>
+
+                    <div
+                        className="py-4 px-1 bg-[#FFE000] border-3 border-[#1A1A1A] rounded-full text-[#1A1A1A] flex items-center justify-center font-bold pointer-events-none"
+                        style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '-2px', boxShadow: '4px 4px 0 #1A1A1A', fontSize: '1.25rem' }}
+                    >
+                        SCROLL
+                    </div>
+
+                    <button
+                        className="float-y cursor-pointer hover:scale-110 transition-transform bg-transparent border-none appearance-none"
+                        style={{ filter: 'drop-shadow(4px 4px 0 #1A1A1A)' }}
+                        onClick={() => window.scrollBy({ top: 400, behavior: 'smooth' })}
+                        aria-label="Scroll Down"
+                    >
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="#00C443" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M12 21l-8-10h5V3h6v8h5z" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </section >
     );
