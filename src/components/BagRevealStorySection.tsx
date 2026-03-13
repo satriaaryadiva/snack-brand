@@ -220,10 +220,8 @@ export default function BagRevealStorySection() {
             <div ref={bgDistantRef} className="absolute inset-[-20%] w-[140%] h-[140%] opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #000 2px )', backgroundSize: '40px 40px' }} />
 
             {/* Glowing Color Orbs */}
-            <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-[#00CFFF] opacity-90 blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-[#FF7A00] opacity-20 blur-[120px] pointer-events-none" />
-
-            <div ref={bgMidRef} className="absolute inset-0 halftone opacity-30 pointer-events-none" />
+             
+ 
             <div
                 ref={bgCloseRef}
                 className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -231,8 +229,7 @@ export default function BagRevealStorySection() {
             />
 
             {/* Lightning bolt decorators */}
-            <div className="absolute top-10 left-10 text-yellow-400 text-6xl opacity-20 transform -rotate-12 z-0 font-bangers">⚡</div>
-            <div className="absolute bottom-20 right-10 text-cyan-400 text-6xl opacity-20 transform rotate-12 z-0 font-bangers">⚡</div>
+        
 
             <div className="absolute inset-0 flex items-center justify-center">
 
@@ -243,11 +240,11 @@ export default function BagRevealStorySection() {
                     <div className="relative flex items-center justify-center pointer-events-none">
                         {/* Mascot */}
                         <div ref={char1Ref} className="absolute -left-20 md:-left-32 -top-10 w-32 h-32 md:w-48 md:h-48 z-30">
-                            <Image src="/shogun_mascot.png" alt="Shogun Mascot" fill className="object-contain" />
-                            <div className="absolute -top-6 -left-4 px-3 py-1 bg-white border-2 border-[#1A1A1A] rounded-2xl font-bold font-sans text-xs" style={{ boxShadow: '2px 2px 0 #ff0000ff' }}>YUM!</div>
+                            <Image src="/MONSTER BRANDING/SHOGUN.png" alt="Shogun Mascot" fill className="object-contain" />
+                            <div className="absolute -top-6 -left-4 px-3 py-1 bg-white border-2 border-yellow-500 rounded-2xl font-bold font-sans text-xs" style={{ boxShadow: '2px 2px 0 #ff0000ff' }}>YUM!</div>
                         </div>
 
-                        <div ref={bag1WrapperRef} className="relative z-20 w-[180px] h-[220px] md:w-[280px] md:h-[350px]">
+                        <div ref={bag1WrapperRef} className="relative z-20 w-[180px] h-[220px] md:w-[280px] b md:h-[350px]">
                             <div ref={burst1Ref} className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
                                 {INGREDIENTS.map((item, i) => (
                                     <div key={`s-${i}`} className="ingredient absolute" style={{ transformOrigin: 'center' }}>
@@ -255,25 +252,25 @@ export default function BagRevealStorySection() {
                                     </div>
                                 ))}
                             </div>
-                            <div ref={bag1TopRef} className="absolute inset-0 z-20" style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 25%, 90% 20%, 80% 28%, 70% 18%, 60% 30%, 50% 20%, 40% 30%, 30% 18%, 20% 28%, 10% 20%, 0% 25%)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.3))' }}>
-                                <Image src="/FOTO PRODUCT/DSCF5767.jpg" alt="Shogun Snack Top" fill className="object-cover border-4 border-[#1A1A1A]" style={{ borderRadius: '16px' }} />
+                            <div ref={bag1TopRef} className="border-4 border-yellow-500 absolute inset-0 z-20" style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 25%, 90% 20%, 80% 28%, 70% 18%, 60% 30%, 50% 20%, 40% 30%, 30% 18%, 20% 28%, 10% 20%, 0% 25%)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.3))' }}>
+                                <Image src="/FOTO PRODUCT/DSCF5767.jpg" alt="Shogun Snack Top" fill className="object-cover scale-160 " style={{ borderRadius: '16px' }} />
                             </div>
-                            <div ref={bag1BottomRef} className="absolute inset-0 z-20" style={{ clipPath: 'polygon(0% 25%, 10% 20%, 20% 28%, 30% 18%, 40% 30%, 50% 20%, 60% 30%, 70% 18%, 80% 28%, 90% 20%, 100% 25%, 100% 100%, 0% 100%)', filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.4))' }}>
-                                <Image src="/FOTO PRODUCT/DSCF5767.jpg" alt="Shogun Snack Bottom" fill className="object-cover border-4 border-[#1A1A1A]" style={{ borderRadius: '16px' }} />
+                            <div ref={bag1BottomRef} className="border-4 border-yellow-500 absolute inset-0 z-20" style={{ clipPath: 'polygon(0% 25%, 10% 20%, 20% 28%, 30% 18%, 40% 30%, 50% 20%, 60% 30%, 70% 18%, 80% 28%, 90% 20%, 100% 25%, 100% 100%, 0% 100%)', filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.4))' }}>
+                                <Image src="/FOTO PRODUCT/DSCF5767.jpg" alt="Shogun Snack Bottom" fill className="object-cover scale-160 border-4 border-[#1A1A1A]" style={{ borderRadius: '16px' }} />
                             </div>
                         </div>
 
                         {/* Shogun Logo */}
-                        <div ref={logo1Ref} className="absolute -bottom-20 md:-bottom-24 w-56 h-20 md:w-80 md:h-38 z-30 bg-white border-4 border-[#1A1A1A]" style={{ boxShadow: '6px 6px 0 #1A1A1A', transform: 'rotate(-4deg)' }}>
-                            <Image src="/LOGO/LOGO SHOGUN.jpg" alt="Shogun Logo" fill className="object-cover  p-1 md:p-2" />
+                        <div ref={logo1Ref} className="absolute -bottom-20 md:-bottom-24 w-56 h-20 md:w-80 md:h-38 z-30 border-4 border-[#1A1A1A]" style={{ boxShadow: '6px 6px 0 #faab00ff', transform: 'rotate(-4deg)' }}>
+                            <Image src="/LOGO/LOGO SHOGUN.jpg" alt="Shogun Logo" fill className="object-cover   " />
                         </div>
                     </div>
 
                     {/* KAARO (RIGHT) */}
-                    <div className="relative flex items-center justify-center pointer-events-none mt-16 md:mt-0">
+                    <div className="relative flex  items-center justify-center pointer-events-none mt-16 md:mt-0">
                         {/* Mascot */}
                         <div ref={char2Ref} className="absolute -right-20 md:-right-32 -top-10 w-32 h-32 md:w-48 md:h-48 z-30">
-                            <Image src="/kaaro_mascot.png" alt="Kaaro Mascot" fill className="object-contain" />
+                            <Image src="/MONSTER BRANDING/KARO.png" alt="Kaaro Mascot" fill className="object-contain scale-125" />
                             <div className="absolute -top-6 -right-4 px-3 py-1 bg-white border-2 border-[#1A1A1A] rounded-2xl font-bold font-sans text-xs" style={{ boxShadow: '2px 2px 0 #1A1A1A' }}>WOW!</div>
                         </div>
 
@@ -285,17 +282,17 @@ export default function BagRevealStorySection() {
                                     </div>
                                 ))}
                             </div>
-                            <div ref={bag2TopRef} className="absolute inset-0 z-20" style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 25%, 90% 20%, 80% 28%, 70% 18%, 60% 30%, 50% 20%, 40% 30%, 30% 18%, 20% 28%, 10% 20%, 0% 25%)', filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.3))' }}>
-                                <Image src="/FOTO PRODUCT/DSC00032.jpg" alt="Kaaro Snack Top" fill className="object-cover border-4 border-[#1A1A1A]" style={{ borderRadius: '16px' }} />
+                            <div ref={bag2TopRef} className="bg-transparent absolute inset-0 z-20" style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 25%, 90% 20%, 80% 28%, 70% 18%, 60% 30%, 50% 20%, 40% 30%, 30% 18%, 20% 28%, 10% 20%, 0% 25%)',  }}>
+                                <Image src="/FOTO PRODUCT/bagkaro.png" alt="Kaaro Snack Top" fill className="object-cover scale-140 border-4 border-[#1A1A1A]" style={{ borderRadius: '16px' }} />
                             </div>
-                            <div ref={bag2BottomRef} className="absolute inset-0 z-20" style={{ clipPath: 'polygon(0% 25%, 10% 20%, 20% 28%, 30% 18%, 40% 30%, 50% 20%, 60% 30%, 70% 18%, 80% 28%, 90% 20%, 100% 25%, 100% 100%, 0% 100%)', filter: 'drop-shadow(0 15px 25px rgba(0,0,0,0.4))' }}>
-                                <Image src="/FOTO PRODUCT/DSC00032.jpg" alt="Kaaro Snack Bottom" fill className="object-cover border-4 border-[#1A1A1A]" style={{ borderRadius: '16px' }} />
+                            <div ref={bag2BottomRef} className="absolute inset-0 z-20" style={{ clipPath: 'polygon(0% 25%, 10% 20%, 20% 28%, 30% 18%, 40% 30%, 50% 20%, 60% 30%, 70% 18%, 80% 28%, 90% 20%, 100% 25%, 100% 100%, 0% 100%)' }}>
+                                <Image src="/FOTO PRODUCT/bagkaro.png" alt="Kaaro Snack Bottom" fill className="object-cover scale-140 border-4 border-[#1A1A1A]" style={{ borderRadius: '16px' }} />
                             </div>
                         </div>
 
                         {/* Kaaro Logo */}
-                        <div ref={logo2Ref} className="absolute -bottom-24 md:-bottom-32 w-64 h-24 md:w-96 md:h-36 z-30 bg-white border-4 border-[#1A1A1A]" style={{ boxShadow: '6px 6px 0 #1A1A1A', transform: 'rotate(4deg)' }}>
-                            <Image src="/LOGO/LOGO KAROO.png" alt="Kaaro Logo" fill className="object-cover p-1 md:p-2" />
+                        <div ref={logo2Ref} className="absolute -bottom-24 md:-bottom-32 w-64 h-24 md:w-96 md:h-36 z-30   border-4 border-[#1A1A1A]" style={{ boxShadow: '6px 6px 0 #00ebfcff', transform: 'rotate(4deg)' }}>
+                            <Image src="/LOGO/LOGO KAROO.png" alt="Kaaro Logo" fill className="object-cover  " />
                         </div>
                     </div>
 
@@ -308,7 +305,7 @@ export default function BagRevealStorySection() {
                 >
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center w-full pointer-events-auto">
                         {/* TEXT LEFT */}
-                        <div ref={textColRef} className="flex flex-col gap-4 md:gap-6 mt-16 md:mt-0">
+                        <div ref={textColRef} className="flex flex-col gap-4 md:gap-6 mt-16 md:mt-10">
                             <div className="inline-flex items-center self-start px-4 py-1.5 border-3 border-[#1A1A1A] bg-[#FFE000]" style={{ boxShadow: '4px 4px 0 #1A1A1A', fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.15em', fontSize: '0.9rem' }}>
                                 ★ THE STORY ★
                             </div>

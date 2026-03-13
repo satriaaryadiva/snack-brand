@@ -141,7 +141,7 @@ export default function HeroSection() {
                         {/* POW! action word */}
                         <div
                             ref={powRef}
-                            className="absolute -top-12 right-0 lg:-right-8 opacity-0 z-40 pointer-events-none"
+                            className="absolute -top-5 right-0 lg:-right-8 opacity-0 z-40 pointer-events-none"
                             style={{
                                 fontFamily: 'var(--font-bangers), Bangers, Impact, cursive',
                                 fontSize: '64px',
@@ -184,9 +184,9 @@ export default function HeroSection() {
                                 <div className="absolute inset-0 halftone opacity-40 rounded-3xl transform rotate-6 scale-110 -z-10" />
 
                                 {/* Mascot Top Left Corner */}
-                                <div className="absolute -top-10 -left-10 lg:top-5 lg:-left-36 border-4 border-[#1A1A1A]  overflow-hidden float-y-alt z-30 bg-[#FFD700] w-[100px] h-[100px] md:w-[140px] md:h-[140px]" style={{ boxShadow: '6px 6px 0 #1A1A1A' }}>
-                                    <Image src="/MONSTER BRANDING/KARO 1.jpg" alt="Kaaro Mascot" fill priority className="object-cover scale-110" />
-                                </div>
+                                
+                                    <Image src="/MONSTER BRANDING/KARO 1.png" alt="Kaaro Mascot" width={200} height={200} priority className=" absolute -top-15 -left-10 lg:top-20 lg:-left-56   overflow-hidden float-y-alt z-30 bg-transparent  w-[200px] h-[200px] md:w-[240px] md:h-[240px] lg:scale-150" />
+                           
 
                                 {/* Product Image Box */}
                                 <div className="border-4 border-[#1A1A1A] rounded-2xl overflow-hidden bg-white relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] transition-transform duration-300 hover:scale-105" style={{ boxShadow: '8px 8px 0 #1A1A1A' }}>
@@ -217,9 +217,10 @@ export default function HeroSection() {
                                 <div className="absolute inset-0 halftone opacity-40 rounded-3xl transform -rotate-6 scale-110 -z-10" />
 
                                 {/* Mascot Bottom Right Corner */}
-                                <div className="absolute -bottom-10 -right-10 lg:-bottom-16 lg:-right-16 border-4 border-[#1A1A1A]  overflow-hidden float-y z-30 bg-[#FFD700] w-[100px] h-[100px] md:w-[140px] md:h-[140px]" style={{ boxShadow: '6px 6px 0 #1A1A1A' }}>
-                                    <Image src="/MONSTER BRANDING/Monster Shogun.jpg" alt="Shogun Mascot" fill priority className="object-cover scale-110" />
-                                </div>
+                               
+                                    <Image src="/MONSTER BRANDING/Shogun.png" alt="Shogun Mascot" width={120} height={120}
+                                    priority className=" absolute -bottom-10 -right-10 lg:-bottom-2 lg:-right-56   overflow-hidden float-y z-30 bg-transparent w-[100px] h-auto md:w-[240px] md:h-auto    " />
+                             
 
                                 {/* Product Image Box */}
                                 <div className="border-4 border-[#1A1A1A] rounded-2xl overflow-hidden bg-white relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] transition-transform duration-300 hover:scale-105" style={{ boxShadow: '8px 8px 0 #1A1A1A' }}>
