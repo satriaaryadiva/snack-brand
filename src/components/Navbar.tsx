@@ -65,12 +65,12 @@ export default function Navbar() {
                 {/* Logo */}
                 <a href="#" className="flex items-center gap-1 group">
                     <span
-                        className="font-comic text-2xl text-[#1A1A1A] tracking-wider"
+                        className="font-comic text-2xl text-yellow-500 tracking-wider"
                         style={{ fontFamily: 'var(--font-bangers), Bangers, Impact, cursive' }}
                     >
                         SHOGUN
                     </span>
-                    <span className="text-[#FF2D2D] font-black text-xl mx-0.5">×</span>
+                    <span className="text-[#FF2D2D] font-black text-4xl mx-0.5">×</span>
                     <span
                         className="font-comic text-2xl text-[#006FFF] tracking-wider"
                         style={{ fontFamily: 'var(--font-bangers), Bangers, Impact, cursive' }}
