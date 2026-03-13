@@ -1,46 +1,40 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import Lenis from 'lenis';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger);
+interface SmoothScrollProviderProps {
+    children: ReactNode;
+}
 
-export default function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
+export default function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     const lenisRef = useRef<Lenis | null>(null);
-    // Only mount on client to prevent hydration mismatch
-    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    useEffect(() => {
-        if (!mounted) return;
-
+        // Initialize Lenis
         const lenis = new Lenis({
-            duration: 1.4,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // https://www.desmos.com/calculator/brs54l4xou
+            orientation: 'vertical',
+            gestureOrientation: 'vertical',
             smoothWheel: true,
+            wheelMultiplier: 1,
+            touchMultiplier: 2,
         });
 
         lenisRef.current = lenis;
 
-        lenis.on('scroll', ScrollTrigger.update);
+        function raf(time: number) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
 
-        const tickerCb = (time: number) => {
-            lenis.raf(time * 1000);
-        };
-        gsap.ticker.add(tickerCb);
-        gsap.ticker.lagSmoothing(0);
+        requestAnimationFrame(raf);
 
         return () => {
-            gsap.ticker.remove(tickerCb);
             lenis.destroy();
-            lenisRef.current = null;
         };
-    }, [mounted]);
+    }, []);
 
     return <>{children}</>;
 }

@@ -150,14 +150,6 @@ export default function BagRevealStorySection() {
 
             tl.to({}, { duration: 0.3 }); // Pause
 
-            // ── Phase 1.5: Fade out Scroll Hint Elements ──
-            tl.to(scrollHintRef.current, {
-                opacity: 0,
-                scale: 0.8,
-                duration: 0.6,
-                ease: 'power2.in',
-            }, '-=0.3');
-
             // ── Phase 2: Tear Open Animation ──
             tl.to([bag1TopRef.current, bag2TopRef.current], {
                 y: '-15%',
@@ -406,7 +398,7 @@ export default function BagRevealStorySection() {
                 {/* Scroll Hint Indicators (Right Side) */}
                 <div ref={scrollHintRef} className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4">
                     <button
-                        className="float-y-alt cursor-pointer hover:scale-110 hover:rotate-180 transition-transform bg-transparent border-none appearance-none"
+                        className="float-y-alt cursor-pointer hover:scale-110 hover:text-red-500  transition-transform bg-transparent border-none appearance-none"
                         style={{ filter: 'drop-shadow(4px 4px 0 #1A1A1A)' }}
                         onClick={() => window.scrollBy({ top: -400, behavior: 'smooth' })}
                         aria-label="Scroll Up"
