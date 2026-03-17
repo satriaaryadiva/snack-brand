@@ -15,9 +15,9 @@ const products = [
         flavor: 'Chicken Flavour',
         desc: 'Kriuk renyah ala Korea! Rasa ayam gurih bikin nagih di tiap gigitan.',
         tag: '🏆 Best Seller',
-        panelBg: '#FFF9E6',
-        accent: '#FFE000',
-        accentDark: '#FF7A00',
+        panelBg: '#FFFDF5',
+        accent: '#FFE000', // Yellow
+        accentDark: '#00C443', // Green
         num: '01',
     },
     {
@@ -27,9 +27,9 @@ const products = [
         flavor: 'Grilled Shrimp',
         desc: 'Aroma udang bakar autentik dalam kemasan renyah yang menggoda.',
         tag: '🍤 Fan Fave',
-        panelBg: '#FFF0E6',
-        accent: '#FF7A00',
-        accentDark: '#FF2D2D',
+        panelBg: '#F0FFF4',
+        accent: '#00C443', // Green
+        accentDark: '#FFE000', // Yellow
         num: '02',
     },
     {
@@ -39,9 +39,9 @@ const products = [
         flavor: 'Campur Kacang',
         desc: 'Lima varian snack dalam satu kemasan. Kejutan rasa di tiap buka!',
         tag: '🎉 Limited',
-        panelBg: '#E6FFE6',
-        accent: '#00C443',
-        accentDark: '#006FFF',
+        panelBg: '#FFFDF5',
+        accent: '#FFE000', // Yellow
+        accentDark: '#00C443', // Green
         num: '03',
     },
     {
@@ -51,22 +51,34 @@ const products = [
         flavor: 'Original',
         desc: 'Mi goreng ala Korea siap makan langsung. Finger-licking good!',
         tag: '🇰🇷 Original',
-        panelBg: '#E0F7FF',
-        accent: '#00CFFF',
-        accentDark: '#006FFF',
+        panelBg: '#FFF5F5',
+        accent: '#FF2D2D', // Red
+        accentDark: '#1A1A1A', // Black
         num: '04',
     },
     {
-        img: '/FOTO PRODUCT/DSC00044.jpg',
+        img: '/FOTO PRODUCT/DSC00033.jpg',
         brand: 'KAARO',
         name: 'Korean Noodle',
-        flavor: 'Special Edition',
+        flavor: 'Premium Blend',
         desc: 'Bumbu spesial lebih kaya, rasa yang makin nendang di lidah.',
-        tag: '⭐ Special',
-        panelBg: '#E6EEFF',
-        accent: '#006FFF',
-        accentDark: '#FF2D2D',
+        tag: '⭐ Premium',
+        panelBg: '#F5F5F5',
+        accent: '#FF2D2D', // Red - used Red as accent to avoid Black on Black
+        accentDark: '#1A1A1A', // Black
         num: '05',
+    },
+    {
+        img: '/FOTO PRODUCT/DSC00035.jpg',
+        brand: 'KAARO',
+        name: 'Korean Noodle',
+        flavor: 'Siap Dimakan',
+        desc: 'Praktis! Buka, makan, kriuk. Tanpa masak, tanpa ribet.',
+        tag: '⚡ Instan',
+        panelBg: '#FFF5F5',
+        accent: '#FF2D2D', // Red
+        accentDark: '#1A1A1A', // Black
+        num: '06',
     },
 ];
 
@@ -130,9 +142,9 @@ export default function StickyProductSection() {
                     </p>
                     <h2
                         className="text-2xl md:text-3xl text-[#1A1A1A] leading-none"
-                        style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.05em', textShadow: '3px 3px 0 #FF7A00' }}
+                        style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.05em', textShadow: '3px 3px 0 #FF2D2D' }}
                     >
-                        SEMUA PRODUK
+                        SEMUA PRODUK ADA DI
                     </h2>
                 </div>
                 {/* Dot indicators */}
@@ -141,7 +153,11 @@ export default function StickyProductSection() {
                         <div
                             key={i}
                             className="w-6 h-6 border-2 border-[#1A1A1A] flex items-center justify-center text-xs font-bold"
-                            style={{ background: p.accent, fontFamily: 'var(--font-bangers), Bangers, cursive' }}
+                            style={{
+                                background: p.accent,
+                                color: (p.accent === '#1A1A1A' || p.brand === 'KAARO' && p.accent === '#FF2D2D') ? '#FFF' : '#1A1A1A',
+                                fontFamily: 'var(--font-bangers), Bangers, cursive'
+                            }}
                         >
                             {i + 1}
                         </div>
@@ -165,7 +181,13 @@ export default function StickyProductSection() {
                             {/* Panel number */}
                             <div
                                 className="absolute top-4 left-4 z-20 w-10 h-10 flex items-center justify-center border-3 border-[#1A1A1A] text-lg"
-                                style={{ background: product.accent, fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.05em', boxShadow: '2px 2px 0 #1A1A1A' }}
+                                style={{
+                                    background: product.accent,
+                                    color: (product.accent === '#1A1A1A' || product.brand === 'KAARO' && product.accent === '#FF2D2D') ? '#FFF' : '#1A1A1A',
+                                    fontFamily: 'var(--font-bangers), Bangers, cursive',
+                                    letterSpacing: '0.05em',
+                                    boxShadow: '2px 2px 0 #1A1A1A'
+                                }}
                             >
                                 {product.num}
                             </div>
@@ -173,7 +195,13 @@ export default function StickyProductSection() {
                             {/* Brand tag */}
                             <div
                                 className="absolute top-4 right-4 z-20 px-3 py-1 border-2 border-[#1A1A1A] text-sm"
-                                style={{ background: i < 3 ? '#FFE000' : '#00CFFF', fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', boxShadow: '2px 2px 0 #1A1A1A' }}
+                                style={{
+                                    background: product.brand === 'SHOGUN' ? '#FFE000' : '#1A1A1A',
+                                    color: product.brand === 'SHOGUN' ? '#1A1A1A' : '#FFF',
+                                    fontFamily: 'var(--font-bangers), Bangers, cursive',
+                                    letterSpacing: '0.08em',
+                                    boxShadow: '2px 2px 0 #1A1A1A'
+                                }}
                             >
                                 {product.brand}
                             </div>
@@ -210,8 +238,13 @@ export default function StickyProductSection() {
                                     {product.flavor}
                                 </div>
                                 <h3
-                                    className="text-2xl md:text-3xl text-[#1A1A1A] leading-none"
-                                    style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.04em', textShadow: `3px 3px 0 ${product.accent}` }}
+                                    className="text-2xl md:text-3xl leading-none"
+                                    style={{
+                                        fontFamily: 'var(--font-bangers), Bangers, cursive',
+                                        letterSpacing: '0.04em',
+                                        color: product.brand === 'KAARO' ? '#FF2D2D' : '#1A1A1A',
+                                        textShadow: `3px 3px 0 ${product.brand === 'KAARO' ? '#1A1A1A' : product.accent}`
+                                    }}
                                 >
                                     {product.name}
                                 </h3>
@@ -224,7 +257,14 @@ export default function StickyProductSection() {
                                 <a
                                     href="#contact"
                                     className="comic-btn mt-auto self-start px-5 py-2 text-base rounded-none"
-                                    style={{ background: product.accent, fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', color: '#1A1A1A', border: '2px solid #1A1A1A', boxShadow: '3px 3px 0 #1A1A1A' }}
+                                    style={{
+                                        background: product.accent,
+                                        fontFamily: 'var(--font-bangers), Bangers, cursive',
+                                        letterSpacing: '0.08em',
+                                        color: (product.accent === '#1A1A1A' || product.brand === 'KAARO' && product.accent === '#FF2D2D') ? '#FFF' : '#1A1A1A',
+                                        border: '2px solid #1A1A1A',
+                                        boxShadow: '3px 3px 0 #1A1A1A'
+                                    }}
                                 >
                                     PESAN SEKARANG →
                                 </a>
@@ -245,22 +285,24 @@ export default function StickyProductSection() {
                         </div>
                         <h3
                             className="text-2xl text-[#FFE000]"
-                            style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.05em', textShadow: '3px 3px 0 #FF7A00' }}
+                            style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.05em', textShadow: '3px 3px 0 #FF2D2D' }}
                         >
-                            Jadi Reseller?
+                            Siap Borong?
                         </h3>
                         <p
                             className="text-white  text-sm leading-relaxed"
                             style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive', fontWeight: 700 }}
                         >
-                            Hubungi kami untuk harga grosir dan info distribusi.
+                            Klik tombol di bawah untuk pesan langsung via WhatsApp!
                         </p>
                         <a
-                            href="#contact"
+                            href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20order%20snacknya%20dong!"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="comic-btn comic-btn-yellow px-6 py-2.5 text-base rounded-none"
                             style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em' }}
                         >
-                            HUBUNGI KAMI!
+                            ORDER SEKARANG!
                         </a>
                     </div>
                 </div>

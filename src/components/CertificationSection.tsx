@@ -29,7 +29,7 @@ const CERTIFICATIONS = [
         icon: '🏆',
         title: 'TOP BRAND 2024',
         desc: 'Dipercaya oleh jutaan keluarga Indonesia sebagai salah satu merek snack favorit terbaik tahun ini.',
-        color: '#00CFFF',
+        color: '#1A1A1A',
         rotation: -2,
     },
     {
@@ -41,7 +41,7 @@ const CERTIFICATIONS = [
         rotation: 5,
     }
 ];
- 
+
 
 export default function CertificationSection() {
     const sectionRef = useRef<HTMLElement>(null);
@@ -50,7 +50,7 @@ export default function CertificationSection() {
     const galleryRef = useRef<HTMLDivElement>(null);
     const [currentGalleryIdx, setCurrentGalleryIdx] = useState(0);
 
- 
+
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -215,7 +215,7 @@ export default function CertificationSection() {
                     </div>
 
                     {/* Right Side: Collage Carousel */}
-                 
+
                 </div>
             </div>
         </section>

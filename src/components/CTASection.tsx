@@ -56,17 +56,17 @@ export default function CTASection() {
 
                     <h2
                         className="text-3xl md:text-5xl text-[#1A1A1A] mb-4 leading-tight"
-                        style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.04em', textShadow: '3px 3px 0 #00CFFF' }}
+                        style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.04em', textShadow: '3px 3px 0 #FF2D2D' }}
                     >
-                        Jadi Reseller atau Distributor?
+                        Klik Untuk Langsung Pesan!
                     </h2>
 
                     <div className="speech-bubble p-5 max-w-lg mx-auto mb-10">
                         <p style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive', fontWeight: 700 }}
                             className="text-[#1A1A1A] leading-relaxed">
-                            Bergabung bersama ratusan reseller <strong className="text-[#FF7A00]">Shogun</strong> &{' '}
-                            <strong className="text-[#006FFF]">Kaaro</strong> di seluruh Indonesia! Harga grosir
-                            terbaik + dukungan penuh dari tim kami. 🔥
+                            Jangan sampai kehabisan stok <strong className="text-[#FF7A00]">Shogun</strong> &{' '}
+                            <strong className="text-[#FF2D2D]">Kaaro</strong>! Pesan sekarang dan nikmati
+                            kriuknya yang legendaris langsung di rumahmu. 🔥
                         </p>
                     </div>
 
@@ -86,8 +86,8 @@ export default function CTASection() {
                         </a>
                         <a
                             href="mailto:info@shogunkaaro.id"
-                            className="comic-btn comic-btn-blue px-8 py-4 text-xl gap-3 rounded-none"
-                            style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', color: '#fff' }}
+                            className="comic-btn comic-btn-outline px-8 py-4 text-xl gap-3 rounded-none"
+                            style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', border: '3px solid #1A1A1A', background: '#1A1A1A', color: '#fff' }}
                         >
                             <svg className="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

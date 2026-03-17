@@ -11,7 +11,7 @@ const stats = [
     { value: '2', label: 'Merek Snack', bg: '#FFE000', icon: '🏷️', textColor: '#020101ff' },
     { value: '5+', label: 'Varian Rasa', bg: '#FF2D2D', icon: '🌶️', textColor: '#000000ff' },
     { value: '100%', label: 'Halal', bg: '#00C443', icon: '✅', textColor: '#020101ff' },
-    { value: '4.9★', label: 'Rating Pelanggan', bg: '#00CFFF', icon: '⭐', textColor: '#020101ff' },
+    { value: '4.9★', label: 'Rating Pelanggan', bg: '#FF2D2D', icon: '⭐', textColor: '#fff' },
 ];
 
 const galleryImagesGroups = [
@@ -144,7 +144,7 @@ export default function BrandStorySection() {
                             <p style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive', fontWeight: 700 }}
                                 className="text-[#1A1A1A] leading-relaxed">
                                 Kami menghadirkan <strong className="text-[#FF7A00]">Shogun</strong> dan{' '}
-                                <strong className="text-[#006FFF]">Kaaro</strong> — snack berkualitas tinggi
+                                <strong className="text-[#FF2D2D]">Kaaro</strong> — snack berkualitas tinggi
                                 untuk semua kalangan di Indonesia. Lahir dari semangat menciptakan camilan yang
                                 lezat, terjangkau, dan halal!
                             </p>
@@ -158,7 +158,7 @@ export default function BrandStorySection() {
                             <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#FF7A00] text-black font-bold flex items-center gap-2 transform rotate-1 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
                                 <span className="text-2xl filter drop-shadow-md">🛡️</span> <span className="mt-1">BPOM RI</span>
                             </div>
-                            <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#00CFFF] text-black font-bold flex items-center gap-2 transform -rotate-1 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
+                            <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#1A1A1A] text-white font-bold flex items-center gap-2 transform -rotate-1 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
                                 <span className="text-2xl filter drop-shadow-md">🏆</span> <span className="mt-1">TOP BRAND 2024</span>
                             </div>
                             <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#FF2D2D] text-blackfont-bold flex items-center gap-2 transform rotate-2 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>

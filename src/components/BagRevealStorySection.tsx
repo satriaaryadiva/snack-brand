@@ -68,7 +68,6 @@ export default function BagRevealStorySection() {
     // Intro Elements
     const introHeadlineRef = useRef<HTMLDivElement>(null);
     const leftCaptionRef = useRef<HTMLDivElement>(null);
-    const scrollHintRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -128,7 +127,7 @@ export default function BagRevealStorySection() {
             );
 
             // Intro elements fade out early as characters fly in
-            tl.to([introHeadlineRef.current, leftCaptionRef.current], {
+            tl.to([introHeadlineRef.current], {
                 opacity: 0,
                 scale: 0.8,
                 y: -20,
@@ -393,38 +392,6 @@ export default function BagRevealStorySection() {
                             style={{ boxShadow: '2px 2px 0 #FF2D2D' }}
                         ></div>
                     </div>
-                </div>
-
-                {/* Scroll Hint Indicators (Right Side) */}
-                <div ref={scrollHintRef} className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-4">
-                    <button
-                        className="float-y-alt cursor-pointer hover:scale-110 hover:text-red-500  transition-transform bg-transparent border-none appearance-none"
-                        style={{ filter: 'drop-shadow(4px 4px 0 #1A1A1A)' }}
-                        onClick={() => window.scrollBy({ top: -400, behavior: 'smooth' })}
-                        aria-label="Scroll Up"
-                    >
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="#00C443" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M12 3l8 10h-5v8H9v-8H4z" />
-                        </svg>
-                    </button>
-
-                    <div
-                        className="py-4 px-1 bg-[#FFE000] border-3 border-[#1A1A1A] rounded-full text-[#1A1A1A] flex items-center justify-center font-bold pointer-events-none"
-                        style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', writingMode: 'vertical-rl', textOrientation: 'upright', letterSpacing: '-2px', boxShadow: '4px 4px 0 #1A1A1A', fontSize: '1.25rem' }}
-                    >
-                        SCROLL
-                    </div>
-
-                    <button
-                        className="float-y cursor-pointer hover:scale-110 transition-transform bg-transparent border-none appearance-none"
-                        style={{ filter: 'drop-shadow(4px 4px 0 #1A1A1A)' }}
-                        onClick={() => window.scrollBy({ top: 400, behavior: 'smooth' })}
-                        aria-label="Scroll Down"
-                    >
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="#00C443" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M12 21l-8-10h5V3h6v8h5z" />
-                        </svg>
-                    </button>
                 </div>
             </div>
         </section >

@@ -82,14 +82,14 @@ export default function HeroSection() {
                         <div ref={headlineRef} className="overflow-hidden">
                             <h1 style={{ fontFamily: 'var(--font-bangers), Bangers, Impact, cursive', lineHeight: 0.9 }}>
                                 <span className="hero-word block text-7xl md:text-8xl lg:text-9xl text-[#FFE000] opacity-0"
-                                    style={{ WebkitTextStroke: '4px #1A1A1A', textShadow: '6px 6px 0 #1A1A1A', letterSpacing: '0.04em' }}>
+                                    style={{ WebkitTextStroke: '4px #1A1A1A', textShadow: '6px 6px 0 #00C443', letterSpacing: '0.04em' }}>
                                     SHOGUN
                                 </span>
                                 <span className="hero-word block text-3xl md:text-4xl text-[#1A1A1A] opacity-0 my-1"
                                     style={{ letterSpacing: '0.4em' }}>
                                     — & —
                                 </span>
-                                <span className="hero-word block text-7xl md:text-8xl lg:text-9xl text-[#00CFFF] opacity-0"
+                                <span className="hero-word block text-7xl md:text-8xl lg:text-9xl text-[#FF2D2D] opacity-0"
                                     style={{ WebkitTextStroke: '4px #1A1A1A', textShadow: '6px 6px 0 #1A1A1A', letterSpacing: '0.04em' }}>
                                     KAARO
                                 </span>
@@ -101,7 +101,7 @@ export default function HeroSection() {
                             <p className="text-[#1A1A1A] text-base leading-relaxed font-bold"
                                 style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive' }}>
                                 Snack ramen renyah <strong className="text-[#FF7A00]">Shogun</strong> bertemu mi goreng
-                                Korea autentik <strong className="text-[#006FFF]">Kaaro</strong>. Dua merek, satu
+                                Korea autentik <strong className="text-[#FF2D2D]">Kaaro</strong>. Dua merek, satu
                                 sensasi — <em>bikin nagih!</em>
                             </p>
                         </div>
@@ -119,7 +119,7 @@ export default function HeroSection() {
                             <MagneticButton
                                 href="#kaaro"
                                 as="a"
-                                className="comic-btn bg-cyan-500  px-7 py-3 text-xl rounded-none"
+                                className="comic-btn bg-red-500  px-7 py-3 text-xl rounded-none"
                                 style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em' } as React.CSSProperties}
                             >
                                 KAARO!
@@ -180,13 +180,13 @@ export default function HeroSection() {
                         >
                             <div className="relative">
                                 {/* Decorative Background Blob/Splash */}
-                                <div className="absolute inset-0 bg-[#00CFFF] rounded-3xl transform rotate-6 scale-110 -z-10 border-4 border-[#1A1A1A]" />
+                                <div className="absolute inset-0 bg-[#FF2D2D] rounded-3xl transform rotate-6 scale-110 -z-10 border-4 border-[#1A1A1A]" />
                                 <div className="absolute inset-0 halftone opacity-40 rounded-3xl transform rotate-6 scale-110 -z-10" />
 
                                 {/* Mascot Top Left Corner */}
-                                
-                                    <Image src="/MONSTER BRANDING/KARO 1.png" alt="Kaaro Mascot" width={200} height={200} priority className=" absolute -top-15 -left-10 lg:top-20 lg:-left-56   overflow-hidden float-y-alt z-30 bg-transparent  w-[200px] h-[200px] md:w-[240px] md:h-[240px] lg:scale-150" />
-                           
+
+                                <Image src="/MONSTER BRANDING/KARO 1.png" alt="Kaaro Mascot" width={200} height={200} priority className=" absolute -top-15 -left-10 lg:top-20 lg:-left-56   overflow-hidden float-y-alt z-30 bg-transparent  w-[200px] h-[200px] md:w-[240px] md:h-[240px] lg:scale-150" />
+
 
                                 {/* Product Image Box */}
                                 <div className="border-4 border-[#1A1A1A] rounded-2xl overflow-hidden bg-white relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] transition-transform duration-300 hover:scale-105" style={{ boxShadow: '8px 8px 0 #1A1A1A' }}>
@@ -209,18 +209,18 @@ export default function HeroSection() {
                         <div
                             ref={shogunImgRef}
                             className="w-full flex justify-center lg:justify-start lg:pl-12 relative z-10"
-                            style={{ filter: 'drop-shadow(8px 8px 0 rgba(0,0,0,0.15))' }}
+                            style={{ filter: 'drop-shadow(8px 8px 0 rgba(229, 255, 0, 1))' }}
                         >
                             <div className="relative">
                                 {/* Decorative Background Blob/Splash */}
-                                <div className="absolute inset-0 bg-[#FF2D2D] rounded-3xl transform -rotate-6 scale-110 -z-10 border-4 border-[#1A1A1A]" />
+                                <div className="absolute inset-0 bg-[#00C443] rounded-3xl transform -rotate-6 scale-110 -z-10 border-4 border-[#1A1A1A]" />
                                 <div className="absolute inset-0 halftone opacity-40 rounded-3xl transform -rotate-6 scale-110 -z-10" />
 
                                 {/* Mascot Bottom Right Corner */}
-                               
-                                    <Image src="/MONSTER BRANDING/Shogun.png" alt="Shogun Mascot" width={120} height={120}
+
+                                <Image src="/MONSTER BRANDING/Shogun.png" alt="Shogun Mascot" width={120} height={120}
                                     priority className=" absolute -bottom-10 -right-10 lg:-bottom-2 lg:-right-56   overflow-hidden float-y z-30 bg-transparent w-[100px] h-auto md:w-[240px] md:h-auto    " />
-                             
+
 
                                 {/* Product Image Box */}
                                 <div className="border-4 border-[#1A1A1A] rounded-2xl overflow-hidden bg-white relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] transition-transform duration-300 hover:scale-105" style={{ boxShadow: '8px 8px 0 #1A1A1A' }}>

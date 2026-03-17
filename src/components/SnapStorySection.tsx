@@ -11,63 +11,64 @@ gsap.registerPlugin(ScrollTrigger);
 const STORY_PANELS = [
     {
         id: 'panel-1',
-        accentBg: '#FFE000',
+        accentBg: '#FFE000', // Shogun Yellow
         textBg: '#FFFDF5',
         badge: '★ CHAPTER 01 ★',
-        badgeBg: '#FF2D2D',
+        badgeBg: '#00C443', // Shogun Green
         headline: 'Ada yang\nBerani Beda.',
-        subhead: 'Dari dapur semangat anak bangsa,\nlahirlah dua snack yang beda dari yang lain.',
+        subhead: 'Dari dapur semangat anak bangsa, lahirlah dua snack yang beda dari yang lain.',
         img: '/FOTO PRODUCT/DSCF5783.jpg',
         imgRotate: '-6deg',
         actionWord: 'CRUNCH!',
         actionColor: '#FFE000',
-        actionShadow: '#FF2D2D',
+        actionShadow: '#00C443',
         floatEmoji: ['🍜', '⭐', '🔥'],
     },
     {
         id: 'panel-2',
-        accentBg: '#00CFFF',
-        textBg: '#F0FAFF',
+        accentBg: '#1A1A1A', // Kaaro Black
+        textBg: '#FFF5F5',
         badge: '★ CHAPTER 02 ★',
-        badgeBg: '#006FFF',
+        badgeBg: '#FF2D2D', // Kaaro Red
         headline: 'Korea, Tapi\nAsli Indo.',
-        subhead: 'Terinspirasi cita rasa autentik Korea,\ndihadirkan untuk lidah Indonesia.',
+        subhead: 'Terinspirasi cita rasa autentik Korea, dihadirkan untuk lidah Indonesia.',
         img: '/FOTO PRODUCT/DSC00050.jpg',
         imgRotate: '5deg',
         actionWord: 'BOOM!',
-        actionColor: '#00CFFF',
-        actionShadow: '#006FFF',
+        actionColor: '#FF2D2D',
+        actionShadow: '#1A1A1A',
         floatEmoji: ['🦖', '💫', '🌶️'],
     },
     {
         id: 'panel-3',
-        accentBg: '#00C443',
+        accentBg: '#00C443', // Shogun Green
         textBg: '#F0FFF4',
         badge: '★ CHAPTER 03 ★',
-        badgeBg: '#1A1A1A',
+        badgeBg: '#FFE000', // Shogun Yellow
         headline: '5 Rasa\nDalam 1 Buka.',
-        subhead: 'Shogun 5in1 hadir dengan kejutan rasa\ndi setiap kemasan. Siap dibuka!',
+        subhead: 'Shogun 5in1 hadir dengan kejutan rasa di setiap kemasan. Siap dibuka!',
         img: '/FOTO PRODUCT/DSC04424.jpg',
         imgRotate: '-4deg',
         actionWord: 'POW!',
-        actionColor: '#00C443',
-        actionShadow: '#1A1A1A',
+        actionColor: '#FFE000',
+        actionShadow: '#00C443',
         floatEmoji: ['🎉', '✨', '💥'],
     },
     {
         id: 'panel-4',
-        accentBg: '#FF2D2D',
-        textBg: '#FFF5F5',
+        accentBg: '#FF2D2D', // Kaaro Red
+        textBg: '#1A1A1A', // Kaaro Black
         badge: '★ CHAPTER 04 ★',
-        badgeBg: '#FFE000',
+        badgeBg: '#FFE000', // Contrast Yellow
         headline: 'Kriuk!\nNagih.\nLagi.',
-        subhead: 'Kaaro mi goreng Korea — kriuk langsung doang,\ntanpa masak. Mau lagi, mau lagi!',
+        subhead: 'Kaaro mi goreng Korea — kriuk langsung doang, tanpa masak. Mau lagi, mau lagi!',
         img: '/FOTO PRODUCT/DSC00051.jpg',
         imgRotate: '8deg',
         actionWord: 'YUM!',
         actionColor: '#FF2D2D',
-        actionShadow: '#1A1A1A',
+        actionShadow: '#FFF',
         floatEmoji: ['😋', '🍜', '❗'],
+        darkTheme: true,
     },
 ];
 
@@ -249,7 +250,7 @@ export default function SnapStorySection() {
                         style={{
                             fontFamily: 'var(--font-bangers), Bangers, cursive',
                             fontSize: 'clamp(80px, 15vw, 200px)',
-                            color: '#1A1A1A',
+                            color: panel.darkTheme ? '#FFF' : '#1A1A1A',
                             lineHeight: 1,
                             letterSpacing: '0.02em',
                         }}
@@ -273,7 +274,7 @@ export default function SnapStorySection() {
                                         boxShadow: '3px 3px 0 #1A1A1A',
                                         fontFamily: 'var(--font-bangers), Bangers, cursive',
                                         letterSpacing: '0.15em',
-                                        color: panel.badgeBg === '#FFE000' ? '#1A1A1A' : '#fff',
+                                        color: (panel.badgeBg === '#FFE000' || panel.badgeBg === '#00C443') ? '#1A1A1A' : '#fff',
                                     }}
                                 >
                                     {panel.badge}
@@ -296,9 +297,9 @@ export default function SnapStorySection() {
                                                         key={wi}
                                                         className="word inline-block opacity-0 mr-3"
                                                         style={{
-                                                            color: '#1A1A1A',
-                                                            WebkitTextStroke: '1.5px #1A1A1A',
-                                                            textShadow: `4px 4px 0 ${panel.accentBg}`,
+                                                            color: panel.id === 'panel-2' || panel.id === 'panel-4' ? '#FF2D2D' : (panel.darkTheme ? '#FFF' : '#1A1A1A'),
+                                                            WebkitTextStroke: panel.darkTheme ? '1.5px #1A1A1A' : '1.5px #1A1A1A',
+                                                            textShadow: `4px 4px 0 ${panel.id === 'panel-2' || panel.id === 'panel-4' ? '#1A1A1A' : panel.accentBg}`,
                                                         }}
                                                     >
                                                         {w}
@@ -312,7 +313,7 @@ export default function SnapStorySection() {
                                 {/* Subtext in speech bubble */}
                                 <div className="speech-bubble story-sub px-5 py-4 self-start max-w-md opacity-0">
                                     <p
-                                        className="text-[#1A1A1A] text-base md:text-lg leading-relaxed"
+                                        className={`text-base md:text-lg leading-relaxed ${panel.darkTheme ? 'text-[#1A1A1A]' : 'text-[#1A1A1A]'}`}
                                         style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive', fontWeight: 700 }}
                                     >
                                         {panel.subhead}
