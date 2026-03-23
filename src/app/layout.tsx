@@ -29,7 +29,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="id">
-      <body className={`${bangers.variable} ${comicNeue.variable} font-body`} suppressHydrationWarning>
+      <body className={`${bangers.variable} ${comicNeue.variable} font-body overflow-x-hidden max-w-[100vw] w-full`} suppressHydrationWarning>
         <SmoothScrollProvider>
           {children}
         </SmoothScrollProvider>

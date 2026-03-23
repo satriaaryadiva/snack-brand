@@ -37,15 +37,11 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <section
-            ref={sectionRef}
-            className="relative min-h-fit flex items-center pt-24 pb-16 overflow-hidden"
-            style={{ background: '#FFFDF5' }}
-        >
+        <section ref={sectionRef} id="home" className="relative h-[100vh] comic-section flex items-center justify-center overflow-hidden" style={{ background: '#FFFDF5' }}>
             {/* Top panel stripe */}
             <div
                 ref={panelTopRef}
-                className="absolute top-20 left-0 right-0 h-2 bg-[#1A1A1A] opacity-0"
+                className="absolute top-10 left-0 right-0 h-2 bg-[#1A1A1A] opacity-0"
             />
 
             {/* Halftone background */}
@@ -81,16 +77,16 @@ export default function HeroSection() {
                         {/* Main headline */}
                         <div ref={headlineRef} className="overflow-hidden">
                             <h1 style={{ fontFamily: 'var(--font-bangers), Bangers, Impact, cursive', lineHeight: 0.9 }}>
-                                <span className="hero-word block text-7xl md:text-8xl lg:text-9xl text-[#FFE000] opacity-0"
-                                    style={{ WebkitTextStroke: '4px #1A1A1A', textShadow: '6px 6px 0 #00C443', letterSpacing: '0.04em' }}>
+                                <span className="hero-word block text-[clamp(3.5rem,15vw,5rem)] md:text-7xl lg:text-8xl text-[#FFE000] opacity-0"
+                                    style={{ WebkitTextStroke: 'max(2px, 0.5vw) #1A1A1A', textShadow: 'min(5px, 1.2vw) min(5px, 1.2vw) 0 #00C443', letterSpacing: '0.04em' }}>
                                     SHOGUN
                                 </span>
-                                <span className="hero-word block text-3xl md:text-4xl text-[#1A1A1A] opacity-0 my-1"
+                                <span className="hero-word block text-xl md:text-2xl text-[#1A1A1A] opacity-0 my-2"
                                     style={{ letterSpacing: '0.4em' }}>
                                     — & —
                                 </span>
-                                <span className="hero-word block text-7xl md:text-8xl lg:text-9xl text-[#FF2D2D] opacity-0"
-                                    style={{ WebkitTextStroke: '4px #1A1A1A', textShadow: '6px 6px 0 #1A1A1A', letterSpacing: '0.04em' }}>
+                                <span className="hero-word block text-[clamp(3.5rem,15vw,5rem)] md:text-7xl lg:text-8xl text-[#FF2D2D] opacity-0"
+                                    style={{ WebkitTextStroke: 'max(2px, 0.5vw) #1A1A1A', textShadow: 'min(5px, 1.2vw) min(5px, 1.2vw) 0 #1A1A1A', letterSpacing: '0.04em' }}>
                                     KAARO
                                 </span>
                             </h1>
@@ -136,41 +132,11 @@ export default function HeroSection() {
                     </div>
 
                     {/* RIGHT: Products panel */}
-                    <div className="relative w-full flex flex-col items-center justify-center gap-16 lg:gap-24 mt-24 lg:mt-0 order-1 lg:order-2">
+                    <div className="relative w-full flex flex-col items-center justify-center gap-8 lg:gap-8 mt-4 lg:mt-0 order-1 lg:order-2">
 
                         {/* POW! action word */}
-                        <div
-                            ref={powRef}
-                            className="absolute -top-5 right-0 lg:-right-8 opacity-0 z-40 pointer-events-none"
-                            style={{
-                                fontFamily: 'var(--font-bangers), Bangers, Impact, cursive',
-                                fontSize: '64px',
-                                color: '#FFE000',
-                                WebkitTextStroke: '3px #1A1A1A',
-                                textShadow: '4px 4px 0 #1A1A1A',
-                                letterSpacing: '0.05em',
-                                transform: 'rotate(-12deg)',
-                                lineHeight: 1,
-                            }}
-                        >
-                            POW!
-                        </div>
-
-                        {/* YUMMY stamp */}
-                        <div
-                            className="absolute -bottom-12 left-0 lg:-left-12 z-40 pointer-events-none"
-                            style={{
-                                fontFamily: 'var(--font-bangers), Bangers, Impact, cursive',
-                                fontSize: '40px',
-                                color: '#FF2D2D',
-                                WebkitTextStroke: '2px #1A1A1A',
-                                textShadow: '3px 3px 0 #1A1A1A',
-                                transform: 'rotate(8deg)',
-                                lineHeight: 1,
-                            }}
-                        >
-                            YUMMY!
-                        </div>
+                 
+ 
 
                         {/* Kaaro product image */}
                         <div
@@ -181,22 +147,22 @@ export default function HeroSection() {
                             <div className="relative">
                                 {/* Decorative Background Blob/Splash */}
                                 <div className="absolute inset-0 bg-[#FF2D2D] rounded-3xl transform rotate-6 scale-110 -z-10 border-4 border-[#1A1A1A]" />
-                                <div className="absolute inset-0 halftone opacity-40 rounded-3xl transform rotate-6 scale-110 -z-10" />
+                                <div className="absolute inset-0 halftone opacity-40 rounded-3xl transform rotate-6  -z-10" />
 
                                 {/* Mascot Top Left Corner */}
 
-                                <Image src="/MONSTER BRANDING/KARO 1.png" alt="Kaaro Mascot" width={200} height={200} priority className=" absolute -top-15 -left-10 lg:top-20 lg:-left-56   overflow-hidden float-y-alt z-30 bg-transparent  w-[200px] h-[200px] md:w-[240px] md:h-[240px] lg:scale-150" />
+                                <Image src="/MONSTER BRANDING/KARO 1.png" alt="Kaaro Mascot" width={200} height={200} priority className="absolute -top-12 -left-4 md:-top-15 md:-left-10 lg:top-30 lg:-left-32 overflow-hidden float-y-alt z-30 bg-transparent w-[20vw] max-w-[140px] sm:max-w-[180px] h-auto lg:scale-125" />
 
 
                                 {/* Product Image Box */}
-                                <div className="border-4 border-[#1A1A1A] rounded-2xl overflow-hidden bg-white relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] transition-transform duration-300 hover:scale-105" style={{ boxShadow: '8px 8px 0 #1A1A1A' }}>
+                                <div className="border-4 border-[#1A1A1A] rounded-2xl overflow-hidden bg-white relative w-[65vw] max-w-[200px] sm:max-w-[200px] md:max-w-[240px] aspect-square transition-transform duration-300 hover:scale-105" style={{ boxShadow: '8px 8px 0 #1A1A1A' }}>
                                     <div className="absolute inset-0 p-4">
                                         <Image
-                                            src="/FOTO PRODUCT/DSCF5864.jpg"
+                                            src="/FOTO PRODUCT/bagkaro.png"
                                             alt="Kaaro Korean Fried Noodle"
                                             fill
                                             sizes="(max-width: 768px) 300px, 400px"
-                                            className="object-contain"
+                                            className="object-cover"
                                             style={{ transform: 'rotate(8deg) scale(1.1)' }}
                                             priority
                                         />
@@ -218,19 +184,18 @@ export default function HeroSection() {
 
                                 {/* Mascot Bottom Right Corner */}
 
-                                <Image src="/MONSTER BRANDING/Shogun.png" alt="Shogun Mascot" width={120} height={120}
-                                    priority className=" absolute -bottom-10 -right-10 lg:-bottom-2 lg:-right-56   overflow-hidden float-y z-30 bg-transparent w-[100px] h-auto md:w-[240px] md:h-auto    " />
+                                <Image src="/MONSTER BRANDING/Shogun.png" alt="Shogun Mascot" width={120} height={120} priority className="absolute -bottom-8 -right-4 md:-bottom-10 md:-right-10 lg:-bottom-2 lg:-right-32 overflow-hidden float-y z-30 bg-transparent w-[25vw] max-w-[110px] sm:max-w-[160px] h-auto" />
 
 
                                 {/* Product Image Box */}
-                                <div className="border-4 border-[#1A1A1A] rounded-2xl overflow-hidden bg-white relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] transition-transform duration-300 hover:scale-105" style={{ boxShadow: '8px 8px 0 #1A1A1A' }}>
+                                <div className="border-4 border-[#1A1A1A] rounded-2xl overflow-hidden bg-white relative w-[65vw] max-w-[200px] sm:max-w-[240px] md:max-w-[240px] aspect-square transition-transform duration-300 hover:scale-105" style={{ boxShadow: '8px 8px 0 #1A1A1A' }}>
                                     <div className="absolute top-0 right-0 w-full h-full p-4">
                                         <Image
                                             src="/FOTO PRODUCT/hero-shogun.png"
                                             alt="Shogun Chicken Ramen Snack"
                                             fill
                                             sizes="(max-width: 768px) 400px, 500px"
-                                            className="object-contain"
+                                            className="object-cover"
                                             style={{ transform: 'rotate(-5deg) scale(1.15) translateY(10px)' }}
                                             priority
                                         />

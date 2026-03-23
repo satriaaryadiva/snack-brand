@@ -110,7 +110,7 @@ export default function CertificationSection() {
     return (
         <section
             ref={sectionRef}
-            className="relative py-24 md:py-32  overflow-hidden comic-section"
+            className="relative h-[100vh] flex flex-col justify-center py-0 overflow-hidden comic-section"
             style={{ background: '#FFE000' }}
         >
             {/* Comic Halftone Background */}
@@ -154,11 +154,9 @@ export default function CertificationSection() {
                     </div>
                 </div>
 
-                {/* Content Layout: Text/Certs (Left) & Carousel (Right) */}
-                <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-stretch">
-
-                    {/* Left Side: Certifications */}
-                    <div ref={gridRef} className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-6 pb-12">
+                {/* Content Layout: Full Width Horizontal Cards */}
+                <div className="w-full">
+                    <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pb-12">
                         {CERTIFICATIONS.map((cert) => (
                             <div
                                 key={cert.id}
@@ -168,10 +166,10 @@ export default function CertificationSection() {
                                     transform: `rotate(${cert.rotation}deg)`,
                                 }}
                                 onMouseEnter={(e) => {
-                                    gsap.to(e.currentTarget, { scale: 1.05, rotation: 0, duration: 0.3, zIndex: 50 });
+                                    gsap.to(e.currentTarget, { scale: 1.1, rotation: 0, duration: 0.4, ease: 'back.out(2)', zIndex: 50, boxShadow: '12px 12px 0 #1A1A1A' });
                                 }}
                                 onMouseLeave={(e) => {
-                                    gsap.to(e.currentTarget, { scale: 1, rotation: cert.rotation, duration: 0.3, zIndex: 10 });
+                                    gsap.to(e.currentTarget, { scale: 1, rotation: cert.rotation, duration: 0.4, ease: 'power2.out', zIndex: 10, boxShadow: '8px 8px 0 #1A1A1A' });
                                 }}
                             >
                                 {/* Decorative Tape */}
@@ -213,9 +211,6 @@ export default function CertificationSection() {
                             </div>
                         ))}
                     </div>
-
-                    {/* Right Side: Collage Carousel */}
-
                 </div>
             </div>
         </section>

@@ -11,13 +11,14 @@ gsap.registerPlugin(ScrollTrigger);
 const STORY_PANELS = [
     {
         id: 'panel-1',
+        brand: 'shogun',
         accentBg: '#FFE000', // Shogun Yellow
         textBg: '#FFFDF5',
         badge: '★ CHAPTER 01 ★',
         badgeBg: '#00C443', // Shogun Green
-        headline: 'Ada yang\nBerani Beda.',
-        subhead: 'Dari dapur semangat anak bangsa, lahirlah dua snack yang beda dari yang lain.',
-        img: '/FOTO PRODUCT/DSCF5783.jpg',
+        headline: 'Ayam Gurih\nBikin Nagih.',
+        subhead: 'Shogun Chicken Flavour! Sensasi ramen kriuk dengan bumbu ayam autentik yang pas banget buat ngemil santai.',
+        img: '/FOTO PRODUCT/DSCF5767.jpg',
         imgRotate: '-6deg',
         actionWord: 'CRUNCH!',
         actionColor: '#FFE000',
@@ -26,49 +27,69 @@ const STORY_PANELS = [
     },
     {
         id: 'panel-2',
-        accentBg: '#1A1A1A', // Kaaro Black
+        brand: 'kaaro',
+        accentBg: '#FF2D2D', // Kaaro Red
         textBg: '#FFF5F5',
         badge: '★ CHAPTER 02 ★',
-        badgeBg: '#FF2D2D', // Kaaro Red
-        headline: 'Korea, Tapi\nAsli Indo.',
-        subhead: 'Terinspirasi cita rasa autentik Korea, dihadirkan untuk lidah Indonesia.',
-        img: '/FOTO PRODUCT/DSC00050.jpg',
-        imgRotate: '5deg',
-        actionWord: 'BOOM!',
+        badgeBg: '#1A1A1A', // Kaaro Black
+        headline: 'Kriuk Korea\nAsli Indo.',
+        subhead: 'Kaaro Original! Mi goreng ala Korea yang langsung bisa dimakan tanpa perlu masak air dulu. Praktis!',
+        img: '/FOTO PRODUCT/DSC00032.jpg',
+        imgRotate: '8deg',
+        actionWord: 'YUM!',
         actionColor: '#FF2D2D',
         actionShadow: '#1A1A1A',
-        floatEmoji: ['🦖', '💫', '🌶️'],
+        floatEmoji: ['😋', '🇰🇷', '❗'],
+        darkTheme: false,
     },
     {
         id: 'panel-3',
+        brand: 'shogun',
         accentBg: '#00C443', // Shogun Green
         textBg: '#F0FFF4',
         badge: '★ CHAPTER 03 ★',
         badgeBg: '#FFE000', // Shogun Yellow
-        headline: '5 Rasa\nDalam 1 Buka.',
-        subhead: 'Shogun 5in1 hadir dengan kejutan rasa di setiap kemasan. Siap dibuka!',
-        img: '/FOTO PRODUCT/DSC04424.jpg',
+        headline: 'Udang Bakar\nDalam Genggaman.',
+        subhead: 'Shogun Grilled Shrimp! Aroma khas udang bakar yang menggoda di setiap potongan ramen renyahnya.',
+        img: '/FOTO PRODUCT/DSC04355.jpg',
         imgRotate: '-4deg',
-        actionWord: 'POW!',
-        actionColor: '#FFE000',
-        actionShadow: '#00C443',
-        floatEmoji: ['🎉', '✨', '💥'],
+        actionWord: 'BOOM!',
+        actionColor: '#00C443',
+        actionShadow: '#1A1A1A',
+        floatEmoji: ['🍤', '🦐', '💥'],
     },
     {
         id: 'panel-4',
-        accentBg: '#FF2D2D', // Kaaro Red
-        textBg: '#1A1A1A', // Kaaro Black
+        brand: 'kaaro',
+        accentBg: '#1A1A1A', // Kaaro Black
+        textBg: '#1A1A1A', // Dark panel
         badge: '★ CHAPTER 04 ★',
-        badgeBg: '#FFE000', // Contrast Yellow
-        headline: 'Kriuk!\nNagih.\nLagi.',
-        subhead: 'Kaaro mi goreng Korea — kriuk langsung doang, tanpa masak. Mau lagi, mau lagi!',
-        img: '/FOTO PRODUCT/DSC00051.jpg',
-        imgRotate: '8deg',
-        actionWord: 'YUM!',
+        badgeBg: '#FF2D2D', // Kaaro Red
+        headline: 'Si Paling\nPremium.',
+        subhead: 'Kaaro Premium Blend! Dengan racikan bumbu spesial yang lebih kaya rasa, bikin melek dan mau lagi.',
+        img: '/FOTO PRODUCT/DSC00033.jpg',
+        imgRotate: '5deg',
+        actionWord: 'HOT!',
         actionColor: '#FF2D2D',
         actionShadow: '#FFF',
-        floatEmoji: ['😋', '🍜', '❗'],
+        floatEmoji: ['🌶️', '🔥', '🏆'],
         darkTheme: true,
+    },
+    {
+        id: 'panel-5',
+        brand: 'shogun',
+        accentBg: '#FFE000', // Shogun Yellow
+        textBg: '#FFF9E6',
+        badge: '★ CHAPTER 05 ★',
+        badgeBg: '#00C443', // Shogun Green
+        headline: '5 Rasa\nDalam 1 Buka.',
+        subhead: 'Shogun 5in1 Mix! Lima varian rasa legendaris dalam satu kemasan besar. Siap dibagi-bagi!',
+        img: '/FOTO PRODUCT/DSC04424.jpg',
+        imgRotate: '-5deg',
+        actionWord: 'POW!',
+        actionColor: '#FFE000',
+        actionShadow: '#00C443',
+        floatEmoji: ['🎉', '✨', '⚡'],
     },
 ];
 
@@ -214,35 +235,21 @@ export default function SnapStorySection() {
                 <div
                     key={panel.id}
                     ref={(el) => { panelRefs.current[i] = el; }}
-                    className="relative w-full overflow-hidden comic-section"
+                    className="relative w-full h-screen overflow-hidden comic-section"
                     style={{
-                        minHeight: '100vh',
+
                         scrollSnapAlign: 'start',
                         background: panel.textBg,
                     }}
                 >
                     {/* Accent side stripe — left on even, right on odd */}
-                    <div
-                        className={`absolute top-0 bottom-0 ${i % 2 === 0 ? 'left-0' : 'right-0'} w-2 md:w-3`}
-                        style={{ background: panel.accentBg, zIndex: 1 }}
-                    />
+
 
                     {/* Halftone bg */}
-                    <div
-                        className="absolute inset-0 opacity-20"
-                        style={{
-                            backgroundImage: `radial-gradient(circle, ${panel.accentBg}99 1.5px, transparent 1.5px)`,
-                            backgroundSize: '16px 16px',
-                        }}
-                    />
+
 
                     {/* Speed lines burst — corner */}
-                    <div
-                        className={`absolute ${i % 2 === 0 ? 'top-0 right-0' : 'top-0 left-0'} w-64 h-64 opacity-10 pointer-events-none`}
-                        style={{
-                            background: `conic-gradient(from ${i % 2 === 0 ? '180' : '0'}deg at ${i % 2 === 0 ? '100% 0%' : '0% 0%'}, ${panel.accentBg} 0deg, transparent 20deg, ${panel.accentBg} 40deg, transparent 60deg, ${panel.accentBg} 80deg, transparent)`,
-                        }}
-                    />
+
 
                     {/* Chapter number watermark */}
                     <div

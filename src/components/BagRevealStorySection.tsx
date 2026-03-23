@@ -8,31 +8,26 @@ import Image from 'next/image';
 gsap.registerPlugin(ScrollTrigger);
 
 const INGREDIENTS = [
-    { type: 'noodle', size: 80, x: -100, y: -150, rot: -45 },
-    { type: 'crumb-red', size: 20, x: 80, y: -180, rot: 30 },
-    { type: 'noodle-short', size: 60, x: -50, y: -200, rot: 15 },
-    { type: 'crumb-yellow', size: 25, x: 0, y: -120, rot: 80 },
-    { type: 'noodle', size: 70, x: 100, y: -130, rot: 120 },
-    { type: 'crumb-green', size: 15, x: -80, y: -90, rot: 40 },
-    { type: 'noodle-short', size: 50, x: 50, y: -220, rot: -20 },
+    { emoji: '❤️', size: 80, x: -100, y: -150, rot: -15 },
+    { emoji: '❤️', size: 50, x: 80, y: -180, rot: 30 },
+    { emoji: '❤️', size: 70, x: -50, y: -200, rot: 15 },
+    { emoji: '❤️', size: 45, x: 0, y: -120, rot: -10 },
+    { emoji: '❤️', size: 75, x: 100, y: -130, rot: 25 },
+    { emoji: '❤️', size: 55, x: -80, y: -90, rot: -20 },
+    { emoji: '❤️', size: 65, x: 50, y: -220, rot: 10 },
 ];
 
-const renderIngredient = (type: string, size: number) => {
-    if (type === 'noodle' || type === 'noodle-short') {
-        return (
-            <div style={{ width: size, height: size, position: 'relative' }}>
-                <Image src="/noodle_fragment.png" alt="Noodle Fragment" fill className="object-contain z-50 drop-shadow-xl" />
-            </div>
-        );
-    }
-    if (type.startsWith('crumb')) {
-        return (
-            <div style={{ width: size, height: size, position: 'relative' }}>
-                <Image src="/noodle_crumb.png" alt="Noodle Crumb" fill className="object-contain z-50 drop-shadow-md" />
-            </div>
-        );
-    }
-    return null;
+const renderIngredient = (item: any) => {
+    return (
+        <div style={{
+            fontSize: `${item.size}px`,
+            lineHeight: 1,
+            filter: 'drop-shadow(2px 4px 6px rgba(0,0,0,0.3))',
+            userSelect: 'none'
+        }}>
+            {item.emoji}
+        </div>
+    );
 };
 
 export default function BagRevealStorySection() {
@@ -188,11 +183,21 @@ export default function BagRevealStorySection() {
             tl.to({}, { duration: 0.5 }); // Pause
 
             // ── Phase 4: Transition to Split Layout ──
-            tl.to([bag1WrapperRef.current, bag2WrapperRef.current, char1Ref.current, char2Ref.current, burst1Ref.current, burst2Ref.current, logo1Ref.current, logo2Ref.current], {
-                opacity: 0,
-                scale: 1.5,
+            // Characters and bag halves dramatically fly UP and OUT of the screen like a superhero jump!
+            tl.to([bag1WrapperRef.current, char1Ref.current, burst1Ref.current, logo1Ref.current], {
+                y: -window.innerHeight * 1.5,
+                x: -300,
+                rotation: -45,
                 duration: 0.8,
-                ease: 'power2.in',
+                ease: 'back.in(1.2)',
+            }, 'reveal');
+
+            tl.to([bag2WrapperRef.current, char2Ref.current, burst2Ref.current, logo2Ref.current], {
+                y: -window.innerHeight * 1.5,
+                x: 300,
+                rotation: 45,
+                duration: 0.8,
+                ease: 'back.in(1.2)',
             }, 'reveal');
 
             tl.fromTo(splitLayoutRef.current,
@@ -202,14 +207,14 @@ export default function BagRevealStorySection() {
             );
 
             tl.fromTo(textColRef.current,
-                { opacity: 0, x: -100 },
-                { opacity: 1, x: 0, duration: 1, ease: 'power3.out' },
+                { x: -window.innerWidth },
+                { x: 0, duration: 1, ease: 'power3.out' },
                 'reveal+=0.7'
             );
 
             tl.fromTo(imgColRef.current,
-                { opacity: 0, x: 100, rotation: 10, scale: 0.8 },
-                { opacity: 1, x: 0, rotation: -4, scale: 1, duration: 1, ease: 'back.out(1.2)' },
+                { x: window.innerWidth, rotation: 10, scale: 0.8 },
+                { x: 0, rotation: -4, scale: 1, duration: 1, ease: 'back.out(1.2)' },
                 'reveal+=0.8'
             );
 
@@ -282,10 +287,10 @@ export default function BagRevealStorySection() {
                         </div>
 
                         <div ref={bag1WrapperRef} className="relative z-20 w-[180px] h-[220px] md:w-[280px] b md:h-[350px]">
-                            <div ref={burst1Ref} className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                            <div ref={burst1Ref} className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                                 {INGREDIENTS.map((item, i) => (
                                     <div key={`s-${i}`} className="ingredient absolute" style={{ transformOrigin: 'center' }}>
-                                        {renderIngredient(item.type, item.size)}
+                                        {renderIngredient(item)}
                                     </div>
                                 ))}
                             </div>
@@ -312,10 +317,10 @@ export default function BagRevealStorySection() {
                         </div>
 
                         <div ref={bag2WrapperRef} className="relative z-20 w-[180px] h-[220px] md:w-[280px] md:h-[350px]">
-                            <div ref={burst2Ref} className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                            <div ref={burst2Ref} className="absolute inset-0 flex items-center justify-center z-40 pointer-events-none">
                                 {INGREDIENTS.map((item, i) => (
                                     <div key={`k-${i}`} className="ingredient absolute" style={{ transformOrigin: 'center' }}>
-                                        {renderIngredient(item.type, item.size)}
+                                        {renderIngredient(item)}
                                     </div>
                                 ))}
                             </div>
@@ -338,7 +343,7 @@ export default function BagRevealStorySection() {
                 {/* === BRAND STORY REVEAL (Phase 4) === */}
                 <div
                     ref={splitLayoutRef}
-                    className="absolute inset-0 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-center opacity-0 pointer-events-none"
+                    className="absolute inset-0 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-center opacity-0 pointer-events-none overflow-hidden"
                 >
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center w-full pointer-events-auto">
                         {/* TEXT LEFT */}
@@ -362,7 +367,7 @@ export default function BagRevealStorySection() {
 
                         {/* IMAGE RIGHT */}
                         <div className="relative flex justify-center items-center">
-                            <div ref={imgColRef} className="relative w-[320px] h-[400px] md:w-[450px] md:h-[550px] border-4 border-[#1A1A1A] bg-[#FFF9E6]" style={{ boxShadow: '10px 10px 0 #1A1A1A' }}>
+                            <div ref={imgColRef} className="relative w-[320px] h-[400px] md:w-[350px] md:h-[450px] border-4 border-[#1A1A1A] bg-[#FFF9E6]" style={{ boxShadow: '10px 10px 0 #1A1A1A' }}>
                                 <Image src="/FOTO PRODUCT/DSCF5838.jpg" alt="Shogun Product Spread" fill className="object-cover" />
                                 <div className="absolute -bottom-6 -left-6 z-20 px-4 py-2 bg-[#FFE000] border-4 border-[#1A1A1A]" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', fontSize: '2rem', WebkitTextStroke: '1px #1A1A1A', color: '#FF2D2D', boxShadow: '4px 4px 0 #1A1A1A', transform: 'rotate(-10deg)' }}>WOW!</div>
                             </div>
@@ -376,22 +381,7 @@ export default function BagRevealStorySection() {
                     className="absolute left-4 md:left-8 top-[40%] md:top-1/2 -translate-y-1/2 z-40 flex flex-col pointer-events-none float-y"
                     style={{ transform: 'rotate(-5deg)' }}
                 >
-                    <div
-                        className="bg-white border-3 border-[#1A1A1A] px-3 py-2 md:px-5 md:py-3 rounded-2xl relative"
-                        style={{ boxShadow: '4px 4px 0 #FF2D2D' }}
-                    >
-                        <p
-                            className="text-[#1A1A1A] font-bold text-xs md:text-sm text-center leading-tight whitespace-nowrap"
-                            style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive' }}
-                        >
-                            Tarik terus <br /> ke bawah! 👇
-                        </p>
-                        {/* Little tail pointing to the center */}
-                        <div
-                            className="absolute top-1/2 -right-1.5 w-3 h-3 bg-white border-r-3 border-b-3 border-[#1A1A1A] transform -translate-y-1/2 rotate-[-45deg]"
-                            style={{ boxShadow: '2px 2px 0 #FF2D2D' }}
-                        ></div>
-                    </div>
+
                 </div>
             </div>
         </section >

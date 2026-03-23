@@ -7,13 +7,6 @@ import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const stats = [
-    { value: '2', label: 'Merek Snack', bg: '#FFE000', icon: '🏷️', textColor: '#020101ff' },
-    { value: '5+', label: 'Varian Rasa', bg: '#FF2D2D', icon: '🌶️', textColor: '#000000ff' },
-    { value: '100%', label: 'Halal', bg: '#00C443', icon: '✅', textColor: '#020101ff' },
-    { value: '4.9★', label: 'Rating Pelanggan', bg: '#FF2D2D', icon: '⭐', textColor: '#fff' },
-];
-
 const galleryImagesGroups = [
     [
         { src: '/FOTO PRODUCT/DSCF5838.jpg', alt: 'Shogun box stack', tall: true },
@@ -48,7 +41,6 @@ const galleryImagesGroups = [
 export default function BrandStorySection() {
     const sectionRef = useRef<HTMLElement>(null);
     const textRef = useRef<HTMLDivElement>(null);
-    const statsRef = useRef<HTMLDivElement>(null);
     const galleryRef = useRef<HTMLDivElement>(null);
     const [currentGalleryIdx, setCurrentGalleryIdx] = useState(0);
 
@@ -61,13 +53,7 @@ export default function BrandStorySection() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.fromTo(statsRef.current?.querySelectorAll('.stat-box') ?? [],
-                { opacity: 0, y: 30, scale: 0.9 },
-                {
-                    opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'back.out(1.5)', stagger: 0.1,
-                    scrollTrigger: { trigger: statsRef.current, start: 'top 85%' }
-                }
-            );
+
             gsap.fromTo(textRef.current,
                 { opacity: 0, x: -50 },
                 {
@@ -90,35 +76,12 @@ export default function BrandStorySection() {
         <section
             ref={sectionRef}
             id="story"
-            className="comic-section py-20 overflow-hidden"
+            className="comic-section h-[100vh] flex flex-col justify-center py-0 overflow-hidden"
             style={{ background: '#FFFDF5' }}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                {/* Stats bar */}
-                <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-                    {stats.map((s, i) => (
-                        <div
-                            key={i}
-                            className="stat-box border-4 border-[#1A1A1A] p-5 text-center"
-                            style={{ background: s.bg, boxShadow: '5px 5px 0 #1A1A1A' }}
-                        >
-                            <div className="text-3xl mb-1">{s.icon}</div>
-                            <div
-                                className="text-3xl leading-none"
-                                style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.05em', color: s.textColor ?? '#1A1A1A' }}
-                            >
-                                {s.value}
-                            </div>
-                            <div
-                                className="text-xs mt-1 font-bold"
-                                style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive', color: s.textColor ?? '#1A1A1A', opacity: 0.8 }}
-                            >
-                                {s.label}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+
 
                 {/* Two-column */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
@@ -132,11 +95,14 @@ export default function BrandStorySection() {
                             TENTANG KAMI
                         </div>
                         <h2
-                            className="text-4xl md:text-5xl text-[#1A1A1A] leading-tight mb-6"
+                            className="text-[clamp(2.5rem,5vw,3.5rem)] text-[#1A1A1A] leading-tight mb-8"
                             style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.04em', textShadow: '4px 4px 0 #FFE000' }}
                         >
                             Snack yang{' '}
-                            <span style={{ color: '#FF2D2D', WebkitTextStroke: '1px #1A1A1A' }}>Disukai</span>{' '}
+                            <span className="relative inline-block">
+                                <span className="relative z-10" style={{ color: '#FF2D2D', WebkitTextStroke: '2px #1A1A1A', textShadow: '2px 2px 0 #FFF' }}>Disukai</span>
+                                <div className="absolute -inset-2 bg-[#FFE000] -z-10 rounded-full transform -rotate-3" style={{ border: '3px solid #1A1A1A' }} />
+                            </span>{' '}
                             Semua Kalangan!
                         </h2>
 
@@ -150,49 +116,51 @@ export default function BrandStorySection() {
                             </p>
                         </div>
 
-                        {/* Certificates & Awards Ribbon */}
+                        {/* Action Buttons */}
                         <div className="flex flex-wrap gap-4 mt-8">
-                            <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#00C443] text-black font-bold flex items-center gap-2 transform -rotate-2 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
-                                <span className="text-2xl filter drop-shadow-md">✅</span> <span className="mt-1">100% HALAL MUI</span>
-                            </div>
-                            <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#FF7A00] text-black font-bold flex items-center gap-2 transform rotate-1 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
-                                <span className="text-2xl filter drop-shadow-md">🛡️</span> <span className="mt-1">BPOM RI</span>
-                            </div>
-                            <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#1A1A1A] text-white font-bold flex items-center gap-2 transform -rotate-1 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
-                                <span className="text-2xl filter drop-shadow-md">🏆</span> <span className="mt-1">TOP BRAND 2024</span>
-                            </div>
-                            <div className="comic-panel px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#FF2D2D] text-blackfont-bold flex items-center gap-2 transform rotate-2 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
-                                <span className="text-2xl filter drop-shadow-md">⭐</span> <span className="mt-1">BEST SNACK AWARD</span>
-                            </div>
+                            <a href="#shogun" className="px-6 py-3 bg-[#FF2D2D] border-4 border-[#1A1A1A] text-white font-bold transform -rotate-2 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.2rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
+                                AYO COBA SEKARANG! 🏃‍♂️💨
+                            </a>
                         </div>
                     </div>
 
                     {/* Gallery Carousel */}
-                    <div ref={galleryRef} className="grid grid-cols-2 gap-3" style={{ gridAutoRows: '160px' }}>
+                    <div ref={galleryRef} className="grid grid-cols-2 gap-4 md:gap-5 w-full max-w-lg lg:max-w-none mx-auto mt-10 lg:mt-0" style={{ gridAutoRows: 'clamp(160px, 25vh, 280px)' }}>
                         {[0, 1, 2, 3, 4].map((slotIdx) => {
                             const isTall = slotIdx === 0;
+                            // Randomize tape position slightly for organic feel
+                            const tapeRotation = slotIdx % 2 === 0 ? '-2deg' : '3deg';
+                            const tapeLeft = slotIdx % 3 === 0 ? '40%' : '50%';
                             return (
                                 <div
                                     key={slotIdx}
-                                    className={`g-img relative overflow-hidden border-4 border-[#1A1A1A] ${isTall ? 'row-span-2' : ''}`}
-                                    style={{ boxShadow: '4px 4px 0 #1A1A1A', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
-                                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translate(-2px,-2px)'; (e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0 #1A1A1A'; }}
-                                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ''; (e.currentTarget as HTMLElement).style.boxShadow = '4px 4px 0 #1A1A1A'; }}
+                                    className={`g-img relative border-4 border-[#1A1A1A] bg-white p-1 ${isTall ? 'row-span-2' : ''}`}
+                                    style={{ boxShadow: '6px 6px 0 #1A1A1A', transition: 'transform 0.2s ease, box-shadow 0.2s ease' }}
+                                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translate(-2px,-2px)'; (e.currentTarget as HTMLElement).style.boxShadow = '8px 8px 0 #1A1A1A'; }}
+                                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = ''; (e.currentTarget as HTMLElement).style.boxShadow = '6px 6px 0 #1A1A1A'; }}
                                 >
-                                    {galleryImagesGroups.map((group, groupIdx) => {
-                                        const img = group[slotIdx];
-                                        const isActive = groupIdx === currentGalleryIdx;
-                                        return (
-                                            <Image
-                                                key={groupIdx}
-                                                src={img.src}
-                                                alt={img.alt}
-                                                fill
-                                                className={`object-cover transition-opacity duration-1000 ease-in-out ${isActive ? 'opacity-100' : 'opacity-0'}`}
-                                                sizes="(max-width:1024px) 50vw, 25vw"
-                                            />
-                                        );
-                                    })}
+                                    {/* Comic Masking Tape */}
+                                    <div
+                                        className="absolute top-[-10px] z-20 w-16 h-6 bg-[#FFE000] border-2 border-[#1A1A1A] opacity-90"
+                                        style={{ left: tapeLeft, transform: `translateX(-50%) rotate(${tapeRotation})`, boxShadow: '2px 2px 0 rgba(0,0,0,0.2)' }}
+                                    />
+
+                                    <div className="relative w-full h-full overflow-hidden border-2 border-[#1A1A1A]">
+                                        {galleryImagesGroups.map((group, groupIdx) => {
+                                            const img = group[slotIdx];
+                                            const isActive = groupIdx === currentGalleryIdx;
+                                            return (
+                                                <Image
+                                                    key={groupIdx}
+                                                    src={img.src}
+                                                    alt={img.alt}
+                                                    fill
+                                                    className={`object-cover transition-opacity duration-1000 ease-in-out ${isActive ? 'opacity-100' : 'opacity-0'}`}
+                                                    sizes="(max-width:1024px) 50vw, 25vw"
+                                                />
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             );
                         })}

@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import Image from 'next/image';
 
 export default function ScrollIndicator() {
-    const [isVisible, setIsVisible] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
     const [scrollProgress, setScrollProgress] = useState(0);
     const [bursts, setBursts] = useState<{ id: number; x: number; y: number }[]>([]);
 
@@ -18,12 +18,6 @@ export default function ScrollIndicator() {
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 300) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
-
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;

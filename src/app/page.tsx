@@ -4,8 +4,9 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ScrollIndicator from '@/components/ScrollIndicator';
 import BagRevealStorySection from '@/components/BagRevealStorySection';
-import StickyProductSection from '@/components/StickyProductSection';
+ 
 import SnapStorySection from '@/components/SnapStorySection';
+ 
 import BrandStorySection from '@/components/BrandStorySection';
 import CertificationSection from '@/components/CertificationSection';
 import TestimonialSection from '@/components/TestimonialSection';
@@ -25,11 +26,12 @@ export default function HomePage() {
         <Navbar />
         <HeroSection />
         <BagRevealStorySection />
-       
 
+
+      
         <BrandStorySection />
         <SnapStorySection />
-         <StickyProductSection />
+     
         <CertificationSection />
         <TestimonialSection />
         <CTASection />
