@@ -110,7 +110,8 @@ export default function CertificationSection() {
     return (
         <section
             ref={sectionRef}
-            className="relative h-[100vh] flex flex-col justify-center py-0 overflow-hidden comic-section"
+            id="certifications"
+            className="relative min-h-[100dvh] flex flex-col justify-center py-20 lg:py-0 overflow-hidden comic-section"
             style={{ background: '#FFE000' }}
         >
             {/* Comic Halftone Background */}
@@ -155,8 +156,8 @@ export default function CertificationSection() {
                 </div>
 
                 {/* Content Layout: Full Width Horizontal Cards */}
-                <div className="w-full">
-                    <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pb-12">
+                <div className="w-full relative z-20">
+                    <div ref={gridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 pb-12 pr-12 lg:pr-0">
                         {CERTIFICATIONS.map((cert) => (
                             <div
                                 key={cert.id}

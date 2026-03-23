@@ -343,33 +343,33 @@ export default function BagRevealStorySection() {
                 {/* === BRAND STORY REVEAL (Phase 4) === */}
                 <div
                     ref={splitLayoutRef}
-                    className="absolute inset-0 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-center opacity-0 pointer-events-none overflow-hidden"
+                    className="absolute inset-0 w-full h-full max-w-7xl mx-auto px-4 pr-16 sm:px-6 md:px-12 flex items-center justify-center opacity-0 pointer-events-none overflow-hidden"
                 >
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center w-full pointer-events-auto">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-12 items-center w-full pointer-events-auto mt-16 md:mt-0">
                         {/* TEXT LEFT */}
-                        <div ref={textColRef} className="flex flex-col gap-4 md:gap-6 mt-16 md:mt-10">
-                            <div className="inline-flex items-center self-start px-4 py-1.5 border-3 border-[#1A1A1A] bg-[#FFE000]" style={{ boxShadow: '4px 4px 0 #1A1A1A', fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.15em', fontSize: '0.9rem' }}>
+                        <div ref={textColRef} className="flex flex-col gap-3 md:gap-6">
+                            <div className="inline-flex items-center self-start px-3 py-1 border-2 md:border-3 border-[#1A1A1A] bg-[#FFE000]" style={{ boxShadow: '3px 3px 0 #1A1A1A', fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.15em', fontSize: '0.8rem' }}>
                                 ★ THE STORY ★
                             </div>
-                            <h2 className="leading-none text-[#1A1A1A]" style={{ fontFamily: 'var(--font-bangers), Bangers, Impact, cursive', fontSize: 'clamp(3.5rem, 6vw, 5.5rem)', letterSpacing: '0.03em', WebkitTextStroke: '2px #1A1A1A', textShadow: '5px 5px 0 #00CFFF' }}>
+                            <h2 className="leading-[1.1] text-[#1A1A1A]" style={{ fontFamily: 'var(--font-bangers), Bangers, Impact, cursive', fontSize: 'clamp(2.5rem, 6vw, 5.5rem)', letterSpacing: '0.03em', WebkitTextStroke: '1px #1A1A1A', textShadow: '3px 3px 0 #00CFFF' }}>
                                 RAHASIA DI BALIK<br />KRIUKNYA SHOGUN
                             </h2>
-                            <div className="speech-bubble px-6 py-5 max-w-lg border-4 border-[#1A1A1A]" style={{ boxShadow: '6px 6px 0 #1A1A1A' }}>
-                                <p className="text-[#1A1A1A] text-lg md:text-xl leading-relaxed" style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive', fontWeight: 700 }}>
+                            <div className="speech-bubble px-4 py-3 md:px-6 md:py-5 max-w-lg border-3 md:border-4 border-[#1A1A1A]" style={{ boxShadow: '4px 4px 0 #1A1A1A' }}>
+                                <p className="text-[#1A1A1A] text-sm md:text-xl leading-relaxed" style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive', fontWeight: 700 }}>
                                     Kami menggunakan resep autentik Korea, dipadukan dengan rempah pilihan Nusantara. Hasilnya? Snack ramen yang <strong className="text-[#FF2D2D]">super renyah</strong> dan bikin nagih sejak gigitan pertama! 😋
                                 </p>
                             </div>
-                            <div className="flex gap-4 mt-4">
-                                <div className="comic-panel px-4 py-2 border-3 border-[#1A1A1A] bg-[#00C443] text-black font-bold" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.2rem', boxShadow: '3px 3px 0 #1A1A1A' }}>✅ 100% HALAL</div>
-                                <div className="comic-panel px-4 py-2 border-3 border-[#1A1A1A] bg-[#FF7A00] text-black font-bold" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.2rem', boxShadow: '3px 3px 0 #1A1A1A' }}>🔥 SUPER KRIUK</div>
+                            <div className="flex flex-wrap gap-2 md:gap-4 mt-2 md:mt-4">
+                                <div className="comic-panel px-3 py-1.5 md:px-4 md:py-2 border-2 md:border-3 border-[#1A1A1A] bg-[#00C443] text-black font-bold" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1rem', boxShadow: '2px 2px 0 #1A1A1A' }}>✅ 100% HALAL</div>
+                                <div className="comic-panel px-3 py-1.5 md:px-4 md:py-2 border-2 md:border-3 border-[#1A1A1A] bg-[#FF7A00] text-black font-bold" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1rem', boxShadow: '2px 2px 0 #1A1A1A' }}>🔥 SUPER KRIUK</div>
                             </div>
                         </div>
 
                         {/* IMAGE RIGHT */}
-                        <div className="relative flex justify-center items-center">
-                            <div ref={imgColRef} className="relative w-[320px] h-[400px] md:w-[350px] md:h-[450px] border-4 border-[#1A1A1A] bg-[#FFF9E6]" style={{ boxShadow: '10px 10px 0 #1A1A1A' }}>
+                        <div className="relative flex justify-center items-center mt-4 md:mt-0">
+                            <div ref={imgColRef} className="relative w-[280px] h-[320px] md:w-[350px] md:h-[450px] border-4 border-[#1A1A1A] bg-[#FFF9E6]" style={{ boxShadow: '8px 8px 0 #1A1A1A' }}>
                                 <Image src="/FOTO PRODUCT/DSCF5838.jpg" alt="Shogun Product Spread" fill className="object-cover" />
-                                <div className="absolute -bottom-6 -left-6 z-20 px-4 py-2 bg-[#FFE000] border-4 border-[#1A1A1A]" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', fontSize: '2rem', WebkitTextStroke: '1px #1A1A1A', color: '#FF2D2D', boxShadow: '4px 4px 0 #1A1A1A', transform: 'rotate(-10deg)' }}>WOW!</div>
+                                <div className="absolute -bottom-4 -left-4 z-20 px-3 py-1 bg-[#FFE000] border-3 border-[#1A1A1A]" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', fontSize: '1.5rem', WebkitTextStroke: '1px #1A1A1A', color: '#FF2D2D', boxShadow: '3px 3px 0 #1A1A1A', transform: 'rotate(-10deg)' }}>WOW!</div>
                             </div>
                         </div>
                     </div>

@@ -76,7 +76,7 @@ export default function BrandStorySection() {
         <section
             ref={sectionRef}
             id="story"
-            className="comic-section h-[100vh] flex flex-col justify-center py-0 overflow-hidden"
+            className="comic-section min-h-[100dvh] flex flex-col justify-center py-20 lg:py-0 overflow-hidden"
             style={{ background: '#FFFDF5' }}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -125,7 +125,10 @@ export default function BrandStorySection() {
                     </div>
 
                     {/* Gallery Carousel */}
-                    <div ref={galleryRef} className="grid grid-cols-2 gap-4 md:gap-5 w-full max-w-lg lg:max-w-none mx-auto mt-10 lg:mt-0" style={{ gridAutoRows: 'clamp(160px, 25vh, 280px)' }}>
+                    <div
+                        ref={galleryRef}
+                        className="grid grid-cols-2 gap-2 sm:gap-4 md:gap-5 w-full max-w-[280px] sm:max-w-lg lg:max-w-none mx-auto mt-8 lg:mt-0 auto-rows-[100px] sm:auto-rows-[140px] md:auto-rows-[180px] lg:auto-rows-[250px]"
+                    >
                         {[0, 1, 2, 3, 4].map((slotIdx) => {
                             const isTall = slotIdx === 0;
                             // Randomize tape position slightly for organic feel

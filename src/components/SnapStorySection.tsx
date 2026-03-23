@@ -266,13 +266,13 @@ export default function SnapStorySection() {
                     </div>
 
                     {/* ─── Main grid layout ─── */}
-                    <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32 min-h-screen flex items-center">
+                    <div className="relative z-10 max-w-7xl mx-auto px-5 pr-14 md:px-12 py-20 md:py-32 min-h-[100dvh] flex items-center">
                         <div
-                            className={`grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center w-full ${i % 2 !== 0 ? 'lg:[&>:first-child]:order-2 lg:[&>:last-child]:order-1' : ''
+                            className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center w-full ${i % 2 !== 0 ? 'lg:[&>:first-child]:order-2 lg:[&>:last-child]:order-1' : ''
                                 }`}
                         >
                             {/* ── LEFT: Text panel ── */}
-                            <div className="story-text flex flex-col gap-4 md:gap-6">
+                            <div className="story-text flex flex-col gap-3 md:gap-6 w-full">
                                 {/* Chapter badge */}
                                 <div
                                     className="story-badge inline-flex items-center self-start px-4 py-1.5 border-3 border-[#1A1A1A] text-sm font-bold opacity-0"
@@ -290,10 +290,10 @@ export default function SnapStorySection() {
                                 {/* Headline — split into words for animation */}
                                 <div className="story-headline overflow-hidden">
                                     <h2
-                                        className="leading-none"
+                                        className="leading-[1.1]"
                                         style={{
                                             fontFamily: 'var(--font-bangers), Bangers, Impact, cursive',
-                                            fontSize: 'clamp(3rem, 8vw, 7rem)',
+                                            fontSize: 'clamp(2.5rem, 8vw, 7rem)',
                                             letterSpacing: '0.03em',
                                         }}
                                     >
@@ -318,9 +318,9 @@ export default function SnapStorySection() {
                                 </div>
 
                                 {/* Subtext in speech bubble */}
-                                <div className="speech-bubble story-sub px-5 py-4 self-start max-w-md opacity-0">
+                                <div className="speech-bubble story-sub px-4 py-3 md:px-5 md:py-4 self-start max-w-[90%] md:max-w-md opacity-0 border-3 border-[#1A1A1A]">
                                     <p
-                                        className={`text-base md:text-lg leading-relaxed ${panel.darkTheme ? 'text-[#1A1A1A]' : 'text-[#1A1A1A]'}`}
+                                        className={`text-sm md:text-lg leading-relaxed ${panel.darkTheme ? 'text-[#1A1A1A]' : 'text-[#1A1A1A]'}`}
                                         style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive', fontWeight: 700 }}
                                     >
                                         {panel.subhead}
@@ -349,20 +349,20 @@ export default function SnapStorySection() {
                             <div className="story-image relative flex items-center justify-center opacity-0 mt-16 md:mt-0">
                                 {/* Accent square behind image */}
                                 <div
-                                    className="absolute w-[260px] h-[300px] md:w-[320px] md:h-[380px] border-4 border-[#1A1A1A]"
+                                    className="absolute w-[220px] h-[260px] md:w-[320px] md:h-[380px] border-3 md:border-4 border-[#1A1A1A]"
                                     style={{
                                         background: panel.accentBg,
                                         transform: `rotate(${i % 2 === 0 ? '4deg' : '-4deg'})`,
-                                        boxShadow: '8px 8px 0 #1A1A1A',
+                                        boxShadow: '6px 6px 0 #1A1A1A',
                                         zIndex: 0,
                                     }}
                                 />
 
                                 {/* Product photo */}
                                 <div
-                                    className="relative w-[240px] h-[280px] md:w-[300px] md:h-[360px] border-4 border-[#1A1A1A] overflow-hidden z-10"
+                                    className="relative w-[200px] h-[240px] md:w-[300px] md:h-[360px] border-3 md:border-4 border-[#1A1A1A] overflow-hidden z-10"
                                     style={{
-                                        boxShadow: '6px 6px 0 #1A1A1A',
+                                        boxShadow: '4px 4px 0 #1A1A1A',
                                         background: '#fff',
                                     }}
                                 >
@@ -371,16 +371,16 @@ export default function SnapStorySection() {
                                         alt={panel.headline.replace('\n', ' ')}
                                         fill
                                         className="object-cover"
-                                        sizes="(max-width: 768px) 260px, 320px"
+                                        sizes="(max-width: 768px) 200px, 320px"
                                     />
                                 </div>
 
                                 {/* ACTION WORD stamp — top right overlapping */}
                                 <div
-                                    className="story-action absolute -top-8 -right-4 md:-top-10 md:-right-6 opacity-0 z-20"
+                                    className="story-action absolute -top-4 -right-2 md:-top-10 md:-right-6 opacity-0 z-20"
                                     style={{
                                         fontFamily: 'var(--font-bangers), Bangers, Impact, cursive',
-                                        fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                                        fontSize: 'clamp(2rem, 6vw, 4.5rem)',
                                         color: panel.actionColor,
                                         WebkitTextStroke: '3px #1A1A1A',
                                         textShadow: `5px 5px 0 ${panel.actionShadow}`,
