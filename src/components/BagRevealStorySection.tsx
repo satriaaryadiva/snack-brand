@@ -282,7 +282,7 @@ export default function BagRevealStorySection() {
                     <div className="relative flex items-center justify-center pointer-events-none">
                         {/* Mascot */}
                         <div ref={char1Ref} className="absolute -left-20 md:-left-32 -top-10 w-32 h-32 md:w-48 md:h-48 z-30">
-                            <Image src="/MONSTER BRANDING/SHOGUN.png" alt="Shogun Mascot" fill className="object-contain" />
+                            <Image src="/MONSTER BRANDING/Shogun.png" alt="Shogun Mascot" fill className="object-contain" />
                             <div className="absolute -top-6 -left-4 px-3 py-1 bg-white border-2 border-yellow-500 rounded-2xl font-bold font-sans text-xs" style={{ boxShadow: '2px 2px 0 #ff0000ff' }}>YUM!</div>
                         </div>
 
@@ -368,7 +368,7 @@ export default function BagRevealStorySection() {
                         {/* IMAGE RIGHT */}
                         <div className="relative flex justify-center items-center mt-4 md:mt-0">
                             <div ref={imgColRef} className="relative w-[280px] h-[320px] md:w-[350px] md:h-[450px] border-4 border-[#1A1A1A] bg-[#FFF9E6]" style={{ boxShadow: '8px 8px 0 #1A1A1A' }}>
-                                <Image src="/FOTO PRODUCT/DSCF5838.jpg" alt="Shogun Product Spread" fill className="object-cover" />
+                                <Image src="/new/rahasiasection.jpeg" alt="Shogun Product Spread" fill className="object-cover" />
                                 <div className="absolute -bottom-4 -left-4 z-20 px-3 py-1 bg-[#FFE000] border-3 border-[#1A1A1A]" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', fontSize: '1.5rem', WebkitTextStroke: '1px #1A1A1A', color: '#FF2D2D', boxShadow: '3px 3px 0 #1A1A1A', transform: 'rotate(-10deg)' }}>WOW!</div>
                             </div>
                         </div>

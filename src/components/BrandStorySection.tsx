@@ -9,32 +9,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 const galleryImagesGroups = [
     [
-        { src: '/FOTO PRODUCT/DSCF5838.jpg', alt: 'Shogun box stack', tall: true },
-        { src: '/FOTO PRODUCT/DSC00044.jpg', alt: 'Kaaro product' },
-        { src: '/FOTO PRODUCT/DSC04373.jpg', alt: 'Shogun lineup' },
-        { src: '/FOTO PRODUCT/DSC04386.jpg', alt: 'Shogun open bag' },
-        { src: '/FOTO PRODUCT/DSC00048.jpg', alt: 'Kaaro noodle pack' },
+        { src: '/new/1.jpeg', alt: 'Shogun product box', tall: true },
+        { src: '/new/3.jpeg', alt: 'Kaaro snack' },
+        { src: '/new/4.jpeg', alt: 'Shogun arrangement' },
+        { src: '/new/5.jpeg', alt: 'Shogun packs' },
+        { src: '/new/6.jpeg', alt: 'Kaaro product' },
     ],
     [
-        { src: '/FOTO PRODUCT/DSCF5861.jpg', alt: 'Shogun variant', tall: true },
-        { src: '/FOTO PRODUCT/DSC04363.jpg', alt: 'Kaaro variant' },
-        { src: '/FOTO PRODUCT/DSC04380.jpg', alt: 'Snack lineup' },
-        { src: '/FOTO PRODUCT/DSCF5873.jpg', alt: 'Delicious snacks' },
-        { src: '/FOTO PRODUCT/DSC04426.jpg', alt: 'Noodle pack' },
-    ],
-    [
-        { src: '/FOTO PRODUCT/DSCF5785.jpg', alt: 'Shogun box stack', tall: true },
-        { src: '/FOTO PRODUCT/DSC00050.jpg', alt: 'Kaaro product' },
-        { src: '/FOTO PRODUCT/DSC04388.jpg', alt: 'Shogun lineup' },
-        { src: '/FOTO PRODUCT/DSCF5844.jpg', alt: 'Shogun open bag' },
-        { src: '/FOTO PRODUCT/DSC04431.jpg', alt: 'Kaaro noodle pack' },
-    ],
-    [
-        { src: '/FOTO PRODUCT/DSCF5865.jpg', alt: 'Shogun flavor', tall: true },
-        { src: '/FOTO PRODUCT/DSC04356.jpg', alt: 'Kaaro flavor' },
-        { src: '/FOTO PRODUCT/DSC04392.jpg', alt: 'Snack arrangement' },
-        { src: '/FOTO PRODUCT/DSCF5770.jpg', alt: 'Yummy snacks' },
-        { src: '/FOTO PRODUCT/DSC04375.jpg', alt: 'Noodle variant' },
+        { src: '/new/7.jpeg', alt: 'Shogun variant', tall: true },
+        { src: '/new/8.png', alt: 'Snack setup' },
+        { src: '/new/9.png', alt: 'Kaaro flavors' },
+        { src: '/new/udang.png', alt: 'Shogun Shrimp' },
+        { src: '/new/5in1.jpeg', alt: 'Shogun 5in1 Mix' },
     ]
 ];
 

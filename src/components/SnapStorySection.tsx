@@ -18,8 +18,8 @@ const STORY_PANELS = [
         badgeBg: '#00C443', // Shogun Green
         headline: 'Ayam Gurih\nBikin Nagih.',
         subhead: 'Shogun Chicken Flavour! Sensasi ramen kriuk dengan bumbu ayam autentik yang pas banget buat ngemil santai.',
-        img: '/FOTO PRODUCT/DSCF5767.jpg',
-        imgRotate: '-6deg',
+        img: '/new/2.jpeg',
+        imgRotate: '-1deg',
         actionWord: 'CRUNCH!',
         actionColor: '#FFE000',
         actionShadow: '#00C443',
@@ -32,9 +32,9 @@ const STORY_PANELS = [
         textBg: '#FFF5F5',
         badge: '★ CHAPTER 02 ★',
         badgeBg: '#1A1A1A', // Kaaro Black
-        headline: 'The Crunchy Kaaro',
-        subhead: '  Snack mie remes renyah dengan rasa bold, yang bikin setiap gigitan terasa lebih seru dan makin nagih.',
-        img: '/FOTO PRODUCT/DSC00032.jpg',
+        headline: ' Kaaro Spicy Flavour',
+        subhead: '  Kaaro adalah snack ayam pedas renyah dengan bumbu nendang yang bikin ketagihan. Rasa gurih ayam berpadu pedas mantap, pas untuk pecinta camilan berbumbu kuat. Sudah bersertifikat HALAL, aman dinikmati kapan saja sebagai teman kerja, belajar, atau nonton. ',
+        img: '/new/9.png',
         imgRotate: '8deg',
         actionWord: 'YUM!',
         actionColor: '#FF2D2D',
@@ -51,7 +51,7 @@ const STORY_PANELS = [
         badgeBg: '#FFE000', // Shogun Yellow
         headline: 'Shogun Grilled Shrimp! ',
         subhead: ' Sensasi snack renyah dengan cita rasa udang bakar yang gurih dan menggoda di setiap genggaman.',
-        img: '/FOTO PRODUCT/DSC04355.jpg',
+        img: '/new/udang.png',
         imgRotate: '-4deg',
         actionWord: 'BOOM!',
         actionColor: '#00C443',
@@ -67,7 +67,7 @@ const STORY_PANELS = [
         badgeBg: '#00C443', // Shogun Green
         headline: '5 Rasa\nDalam 1 Buka.',
         subhead: 'Shogun 5in1 Mix! Lima varian rasa legendaris dalam satu kemasan besar. Siap dibagi-bagi!',
-        img: '/FOTO PRODUCT/DSC04424.jpg',
+        img: '/new/5in1.jpeg',
         imgRotate: '-5deg',
         actionWord: 'POW!',
         actionColor: '#FFE000',
@@ -360,7 +360,7 @@ export default function SnapStorySection() {
 
                                 {/* Product photo */}
                                 <div
-                                    className="relative w-[200px] h-[240px] md:w-[300px] md:h-[360px] border-3 md:border-4 border-[#1A1A1A] overflow-hidden z-10"
+                                    className="relative   aspect-ratio-[4/5] w-[200px] h-[240px] md:w-[300px] md:h-[360px] border-3 md:border-4 border-[#1A1A1A] overflow-hidden z-10"
                                     style={{
                                         boxShadow: '4px 4px 0 #1A1A1A',
                                         background: '#fff',
@@ -370,8 +370,8 @@ export default function SnapStorySection() {
                                         src={panel.img}
                                         alt={panel.headline.replace('\n', ' ')}
                                         fill
-                                        className="object-cover"
-                                        sizes="(max-width: 768px) 200px, 320px"
+                                        className=" object-cover"
+                                        sizes="(max-width: 768px) 200px, 520px"
                                     />
                                 </div>
 
