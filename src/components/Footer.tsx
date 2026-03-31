@@ -100,7 +100,8 @@ export default function Footer() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={s.name}
-                                className="w-10 h-10 flex items-center justify-center border-2 border-white/20 text-white/50 hover:bg-[#FFE000] hover:text-[#1A1A1A] hover:border-[#FFE000] transition-all duration-150"
+                                className="w-10 h-10 flex items-center 
+                                bg-yellow-500 justify-center border-2 border-yellow-500  text-white/90 hover:bg-[#FFE000] hover:text-[#1A1A1A] hover:border-[#FFE000] transition-all duration-150"
                             >
                                 {s.icon}
                             </a>
