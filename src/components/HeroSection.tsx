@@ -62,14 +62,14 @@ export default function HeroSection() {
                     <div className="flex flex-col gap-4 md:gap-6 order-1 lg:order-1 pt-24 md:pt-0">
                         {/* "EPISODE 1" ribbon */}
                         <div
-                            className="inline-flex items-center gap-3 self-start px-4 py-2 border-3 border-[#1A1A1A] bg-[#FF2D2D]"
+                            className="inline-flex md:mt-8 items-center gap-3 self-start px-2 py-2 border-3 border-[#1A1A1A] bg-[#FF2D2D]"
                             style={{ boxShadow: '3px 3px 0 #1A1A1A' }}
                         >
                             <span
                                 className="text-white font-comic text-sm tracking-widest"
                                 style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.15em' }}
                             >
-                                ★ EDISI SPESIAL ★
+                                ★ Choose your crunch !! ★
                             </span>
                         </div>
 
@@ -81,8 +81,8 @@ export default function HeroSection() {
                                     SHOGUN
                                 </span>
                                 <span className="hero-word block text-xl md:text-2xl text-[#1A1A1A] opacity-0 my-2"
-                                    style={{ letterSpacing: '0.4em' }}>
-                                    — & —
+                               >
+                                - OR  -
                                 </span>
                                 <span className="hero-word block text-[clamp(3.5rem,15vw,5rem)] md:text-7xl lg:text-8xl text-[#FF2D2D] opacity-0"
                                     style={{ WebkitTextStroke: 'max(2px, 0.5vw) #1A1A1A', textShadow: 'min(5px, 1.2vw) min(5px, 1.2vw) 0 #1A1A1A', letterSpacing: '0.04em' }}>
@@ -93,12 +93,13 @@ export default function HeroSection() {
 
                         {/* Speech bubble subtitle */}
                         <div ref={subRef} className="speech-bubble px-5 py-4 max-w-md self-start opacity-0">
-                            <p className="text-[#1A1A1A] text-base leading-relaxed font-bold"
-                                style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive' }}>
-                                Snack ramen renyah <strong className="text-[#FF7A00]">Shogun</strong> bertemu mi goreng
-                                Korea autentik <strong className="text-[#FF2D2D]">Kaaro</strong>. Dua merek, satu
-                                sensasi — <em>bikin nagih!</em>
-                            </p>
+                            <div className="flex flex-col gap-2">
+                               
+                                <p className="text-[#1A1A1A] text-base md:text-xl leading-relaxed font-semibold"
+                                    style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive' }}>
+                                    Duo snack mie kremes renyah dengan karakter rasa yang berbeda, dengan sensasi <em className="text-[#FF2D2D]">crunchy</em> yang bikin nagih di setiap remesan.
+                                </p>
+                            </div>
                         </div>
 
                         {/* CTA row */}
@@ -144,7 +145,7 @@ export default function HeroSection() {
                                 <div className="absolute inset-0 halftone opacity-40 rounded-2xl md:rounded-3xl transform rotate-6 -z-10" />
 
                                 {/* Mascot Top Left Corner */}
-                                <Image src="/MONSTER BRANDING/KARO 1.png" alt="Kaaro Mascot" width={200} height={200} priority className="absolute -top-6 -left-8 md:-top-15 md:-left-10 lg:top-30 lg:-left-32 overflow-hidden float-y-alt z-30 bg-transparent w-[28vw] max-w-[90px] sm:max-w-[140px] md:max-w-[180px] h-auto lg:scale-125 pointer-events-none" />
+                                <Image src="/MONSTER BRANDING/KARO.png" alt="Kaaro Mascot" width={200} height={200} priority className="absolute -top-6 -left-8 md:-top-15 md:-left-10 lg:top-30 lg:-left-32 overflow-hidden float-y-alt z-30 bg-transparent w-[28vw] max-w-[90px] sm:max-w-[140px] md:max-w-[180px] h-auto lg:scale-125 pointer-events-none" />
 
                                 {/* Product Image Box */}
                                 <div className="border-3 md:border-4 border-[#1A1A1A] rounded-xl md:rounded-2xl overflow-hidden bg-white relative w-full aspect-square transition-transform duration-300 hover:scale-105" style={{ boxShadow: '6px 6px 0 #1A1A1A' }}>

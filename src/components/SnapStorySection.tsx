@@ -32,8 +32,8 @@ const STORY_PANELS = [
         textBg: '#FFF5F5',
         badge: '★ CHAPTER 02 ★',
         badgeBg: '#1A1A1A', // Kaaro Black
-        headline: 'Kriuk Korea\nAsli Indo.',
-        subhead: 'Kaaro Original! Mi goreng ala Korea yang langsung bisa dimakan tanpa perlu masak air dulu. Praktis!',
+        headline: 'The Crunchy Kaaro',
+        subhead: '  Snack mie remes renyah dengan rasa bold, yang bikin setiap gigitan terasa lebih seru dan makin nagih.',
         img: '/FOTO PRODUCT/DSC00032.jpg',
         imgRotate: '8deg',
         actionWord: 'YUM!',
@@ -49,8 +49,8 @@ const STORY_PANELS = [
         textBg: '#F0FFF4',
         badge: '★ CHAPTER 03 ★',
         badgeBg: '#FFE000', // Shogun Yellow
-        headline: 'Udang Bakar\nDalam Genggaman.',
-        subhead: 'Shogun Grilled Shrimp! Aroma khas udang bakar yang menggoda di setiap potongan ramen renyahnya.',
+        headline: 'Shogun Grilled Shrimp! ',
+        subhead: ' Sensasi snack renyah dengan cita rasa udang bakar yang gurih dan menggoda di setiap genggaman.',
         img: '/FOTO PRODUCT/DSC04355.jpg',
         imgRotate: '-4deg',
         actionWord: 'BOOM!',
@@ -60,27 +60,10 @@ const STORY_PANELS = [
     },
     {
         id: 'panel-4',
-        brand: 'kaaro',
-        accentBg: '#1A1A1A', // Kaaro Black
-        textBg: '#1A1A1A', // Dark panel
-        badge: '★ CHAPTER 04 ★',
-        badgeBg: '#FF2D2D', // Kaaro Red
-        headline: 'Si Paling\nPremium.',
-        subhead: 'Kaaro Premium Blend! Dengan racikan bumbu spesial yang lebih kaya rasa, bikin melek dan mau lagi.',
-        img: '/FOTO PRODUCT/DSC00033.jpg',
-        imgRotate: '5deg',
-        actionWord: 'HOT!',
-        actionColor: '#FF2D2D',
-        actionShadow: '#FFF',
-        floatEmoji: ['🌶️', '🔥', '🏆'],
-        darkTheme: true,
-    },
-    {
-        id: 'panel-5',
         brand: 'shogun',
         accentBg: '#FFE000', // Shogun Yellow
         textBg: '#FFF9E6',
-        badge: '★ CHAPTER 05 ★',
+        badge: '★ CHAPTER 04 ★',
         badgeBg: '#00C443', // Shogun Green
         headline: '5 Rasa\nDalam 1 Buka.',
         subhead: 'Shogun 5in1 Mix! Lima varian rasa legendaris dalam satu kemasan besar. Siap dibagi-bagi!',
@@ -90,6 +73,23 @@ const STORY_PANELS = [
         actionColor: '#FFE000',
         actionShadow: '#00C443',
         floatEmoji: ['🎉', '✨', '⚡'],
+    },
+    {
+        id: 'panel-5',
+        brand: 'kaaro',
+        accentBg: '#1A1A1A', // Kaaro Black
+        textBg: '#1A1A1A', // Dark panel
+        badge: '★ CHAPTER 05 ★',
+        badgeBg: '#FF2D2D', // Kaaro Red
+        headline: 'Si Paling\nPremium.',
+        subhead: 'Kaaro Premium Blend! Perpaduan sempurna antara cita rasa mi instan Korea yang otentik dengan sentuhan rempah khas Nusantara. Hadir dalam kemasan praktis yang siap dinikmati kapan saja.',
+        img: '/FOTO PRODUCT/DSC00033.jpg',
+        imgRotate: '5deg',
+        actionWord: 'HOT!',
+        actionColor: '#FF2D2D',
+        actionShadow: '#FFF',
+        floatEmoji: ['🌶️', '🔥', '🏆'],
+        darkTheme: true,
     },
 ];
 
@@ -266,13 +266,13 @@ export default function SnapStorySection() {
                     </div>
 
                     {/* ─── Main grid layout ─── */}
-                    <div className="relative z-10 max-w-7xl mx-auto px-5 pr-14 md:px-12 py-20 md:py-32 min-h-[100dvh] flex items-center">
+                    <div className="relative z-10 max-w-7xl mx-auto px-5 pr-14 md:px-12 py-10 lg:py-12 min-h-[100dvh] flex items-center">
                         <div
-                            className={`grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center w-full ${i % 2 !== 0 ? 'lg:[&>:first-child]:order-2 lg:[&>:last-child]:order-1' : ''
+                            className={`grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center w-full ${i % 2 !== 0 ? 'lg:[&>:first-child]:order-2 lg:[&>:last-child]:order-1' : ''
                                 }`}
                         >
                             {/* ── LEFT: Text panel ── */}
-                            <div className="story-text flex flex-col gap-3 md:gap-6 w-full">
+                            <div className="story-text flex flex-col gap-3 lg:gap-4 w-full">
                                 {/* Chapter badge */}
                                 <div
                                     className="story-badge inline-flex items-center self-start px-4 py-1.5 border-3 border-[#1A1A1A] text-sm font-bold opacity-0"
@@ -293,7 +293,7 @@ export default function SnapStorySection() {
                                         className="leading-[1.1]"
                                         style={{
                                             fontFamily: 'var(--font-bangers), Bangers, Impact, cursive',
-                                            fontSize: 'clamp(2.5rem, 8vw, 7rem)',
+                                            fontSize: 'clamp(2.5rem, 6vw, 5.5rem)',
                                             letterSpacing: '0.03em',
                                         }}
                                     >

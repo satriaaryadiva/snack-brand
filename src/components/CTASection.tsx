@@ -73,7 +73,7 @@ export default function CTASection() {
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="https://wa.me/6281234567890?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20Shogun%20%26%20Kaaro"
+                            href="https://wa.me/6282165101085?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20Shogun%20%26%20Kaaro"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="comic-btn comic-btn-yellow px-8 py-4 text-xl gap-3 rounded-none"

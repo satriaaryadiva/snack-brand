@@ -76,7 +76,7 @@ export default function BrandStorySection() {
         <section
             ref={sectionRef}
             id="story"
-            className="comic-section min-h-[100dvh] flex flex-col justify-center py-20 lg:py-0 overflow-hidden"
+            className="comic-section h-[100vh] flex flex-col justify-center py-0 overflow-hidden"
             style={{ background: '#FFFDF5' }}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,12 +84,12 @@ export default function BrandStorySection() {
 
 
                 {/* Two-column */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-14  items-start">
 
                     {/* Text */}
-                    <div ref={textRef}>
+                    <div ref={textRef} className='lg:pt-20'>
                         <div
-                            className="inline-flex items-center px-4 py-1 mb-5 border-3 border-[#1A1A1A]"
+                            className="inline-flex  items-center px-4 py-1 mb-5 border-3 border-[#1A1A1A]"
                             style={{ background: '#FFE000', fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.12em', boxShadow: '3px 3px 0 #1A1A1A', fontSize: '0.85rem' }}
                         >
                             TENTANG KAMI
@@ -127,7 +127,7 @@ export default function BrandStorySection() {
                     {/* Gallery Carousel */}
                     <div
                         ref={galleryRef}
-                        className="grid grid-cols-2 gap-2 sm:gap-4 md:gap-5 w-full max-w-[280px] sm:max-w-lg lg:max-w-none mx-auto mt-8 lg:mt-0 auto-rows-[100px] sm:auto-rows-[140px] md:auto-rows-[180px] lg:auto-rows-[250px]"
+                        className="grid grid-cols-2 gap-2 sm:gap-4 md:gap-5 w-full max-w-[280px] sm:max-w-lg lg:max-w-none mx-auto mt-8 lg:mt-0 auto-rows-[100px] sm:auto-rows-[120px] md:auto-rows-[140px] lg:auto-rows-[180px]"
                     >
                         {[0, 1, 2, 3, 4].map((slotIdx) => {
                             const isTall = slotIdx === 0;

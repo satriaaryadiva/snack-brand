@@ -143,7 +143,7 @@ export default function ScrollIndicator() {
                     >
                         <div className="absolute inset-0 bg-green-500 opacity-10 group-hover:opacity-30 transition-opacity" />
                         <Image
-                            src="/MONSTER BRANDING/KARO.png"
+                            src="/LOGO/logoscrol.jpg"
                             alt="Progress"
                             width={40}
                             height={40}

@@ -296,7 +296,7 @@ export default function StickyProductSection() {
                             Klik tombol di bawah untuk pesan langsung via WhatsApp!
                         </p>
                         <a
-                            href="https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20order%20snacknya%20dong!"
+                            href="https://wa.me/6282165101085?text=Halo%2C%20saya%20mau%20order%20snacknya%20dong!"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="comic-btn comic-btn-yellow px-6 py-2.5 text-base rounded-none"
