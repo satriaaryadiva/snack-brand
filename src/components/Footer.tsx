@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Footer() {
     const year = new Date().getFullYear();
 
@@ -48,19 +50,13 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="text-center md:text-left">
                         <div className="flex items-center justify-center md:justify-start gap-1 mb-2">
-                            <span
-                                className="text-3xl text-[#FFE000]"
-                                style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.06em', WebkitTextStroke: '1px #FFE000' }}
-                            >
-                                SHOGUN
-                            </span>
+                            <div className="relative w-[100px] h-[30px] sm:w-[120px] sm:h-[35px]">
+                                <Image src="/new/shogun.png" alt="Shogun Logo" fill className="object-contain scale-400" />
+                            </div>
                             <span className="text-[#FF2D2D] font-black text-2xl mx-1">×</span>
-                            <span
-                                className="text-3xl text-[#00CFFF]"
-                                style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.06em' }}
-                            >
-                                KAARO
-                            </span>
+                            <div className="relative w-[110px] h-[32px] sm:w-[130px] sm:h-[38px]">
+                                <Image src="/new/karo.png" alt="Kaaro Logo" fill className="object-contain scale-400" />
+                            </div>
                         </div>
                         <p
                             className="text-white/40 text-xs max-w-xs"
