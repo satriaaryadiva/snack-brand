@@ -75,19 +75,17 @@ export default function HeroSection() {
 
                         {/* Main headline */}
                         <div ref={headlineRef} className="overflow-hidden">
-                            <h1 style={{ fontFamily: 'var(--font-bangers), Bangers, Impact, cursive', lineHeight: 0.9 }}>
-                                <span className="hero-word block text-[clamp(3.5rem,15vw,5rem)] md:text-7xl lg:text-8xl text-[#FFE000] opacity-0"
-                                    style={{ WebkitTextStroke: 'max(2px, 0.5vw) #1A1A1A', textShadow: 'min(5px, 1.2vw) min(5px, 1.2vw) 0 #00C443', letterSpacing: '0.04em' }}>
-                                    SHOGUN
+                            <h1 className="flex flex-col items-start gap-2">
+                                <div className="hero-word relative w-[280px] h-[70px] sm:w-[350px] sm:h-[90px] md:w-[450px] md:h-[120px] lg:w-[500px] lg:h-[140px] opacity-0">
+                                    <Image src="/LOGO/LOGO SHOGUN.jpg" alt="Shogun Logo" fill className="object-contain" priority />
+                                </div>
+                                <span className="hero-word block text-xl md:text-2xl text-[#1A1A1A] font-bold opacity-0 my-2 ml-4 md:ml-8"
+                                    style={{ fontFamily: 'var(--font-bangers), Bangers, cursive' }}>
+                                    - OR -
                                 </span>
-                                <span className="hero-word block text-xl md:text-2xl text-[#1A1A1A] opacity-0 my-2"
-                               >
-                                - OR  -
-                                </span>
-                                <span className="hero-word block text-[clamp(3.5rem,15vw,5rem)] md:text-7xl lg:text-8xl text-[#FF2D2D] opacity-0"
-                                    style={{ WebkitTextStroke: 'max(2px, 0.5vw) #1A1A1A', textShadow: 'min(5px, 1.2vw) min(5px, 1.2vw) 0 #1A1A1A', letterSpacing: '0.04em' }}>
-                                    KAARO
-                                </span>
+                                <div className="hero-word relative w-[300px] h-[80px] sm:w-[380px] sm:h-[100px] md:w-[500px] md:h-[140px] lg:w-[550px] lg:h-[160px] opacity-0">
+                                    <Image src="/LOGO/LOGO KAROO.png" alt="Kaaro Logo" fill className="object-contain" priority />
+                                </div>
                             </h1>
                         </div>
 

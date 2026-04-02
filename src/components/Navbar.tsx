@@ -45,8 +45,7 @@ export default function Navbar() {
     }, [menuOpen]);
 
     const navLinks = [
-        { href: '#shogun', label: 'Shogun' },
-        { href: '#kaaro', label: 'Kaaro' },
+        { href: '#why', label: 'Why' },
         { href: '#products', label: 'Produk' },
         { href: '#story', label: 'Tentang' },
         { href: '#contact', label: 'Kontak' },
@@ -96,7 +95,7 @@ export default function Navbar() {
                 {/* CTA */}
                 <div className="hidden md:block">
                     <MagneticButton
-                        href="#products"
+                        href="https://s.shopee.co.id/9fGYke5HNI"
                         className="inline-flex items-center px-5 py-2 rounded-none text-sm font-bold text-[#1A1A1A] bg-[#FF2D2D] comic-btn comic-btn-red"
                         style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.1em', fontSize: '1rem', color: '#fff' }}
                     >
@@ -131,7 +130,7 @@ export default function Navbar() {
                         </a>
                     ))}
                     <a
-                        href="#products"
+                        href="https://s.shopee.co.id/9fGYke5HNI"
                         className="mt-3 text-center py-2.5 bg-[#FF2D2D] text-white font-bold border-3 border-[#1A1A1A] comic-btn"
                         style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.1em', fontSize: '1.1rem' }}
                         onClick={() => setMenuOpen(false)}

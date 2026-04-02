@@ -234,6 +234,7 @@ export default function BagRevealStorySection() {
     return (
         <section
             ref={sectionRef}
+            id="why"
             className="relative h-screen w-full overflow-hidden comic-section"
             style={{ background: '#FFFDF5' }}
         >
