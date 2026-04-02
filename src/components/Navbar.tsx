@@ -46,7 +46,7 @@ export default function Navbar() {
     }, [menuOpen]);
 
     const navLinks = [
-        { href: '#why', label: 'Why' },
+        { href: '#why', label: 'Why?' },
         { href: '#products', label: 'Produk' },
         { href: '#story', label: 'Tentang' },
         { href: '#contact', label: 'Kontak' },

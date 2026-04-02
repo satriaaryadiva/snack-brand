@@ -33,7 +33,7 @@ const STORY_PANELS = [
         badge: '★ CHAPTER 02 ★',
         badgeBg: '#1A1A1A', // Kaaro Black
         headline: ' Kaaro Spicy Flavour',
-        subhead: '  Kaaro adalah snack ayam pedas renyah dengan bumbu nendang yang bikin ketagihan. Rasa gurih ayam berpadu pedas mantap, pas untuk pecinta camilan berbumbu kuat. Sudah bersertifikat HALAL, aman dinikmati kapan saja sebagai teman kerja, belajar, atau nonton. ',
+        subhead: ' Kaaro snack mie kremes rasa pedas dengan sensasi renyah dan bumbu nendang yang bikin ketagihan. Pedasnya pas, gurihnya dapet, cocok jadi teman ngemil kapan saja',
         img: '/new/9.png',
         imgRotate: '8deg',
         actionWord: 'YUM!',
@@ -227,12 +227,14 @@ export default function SnapStorySection() {
 
     return (
         <div
+            id="products"
             ref={wrapperRef}
             className="relative"
             style={{ scrollSnapType: 'y mandatory' }}
         >
             {STORY_PANELS.map((panel, i) => (
                 <div
+                    id={panel.id}
                     key={panel.id}
                     ref={(el) => { panelRefs.current[i] = el; }}
                     className="relative w-full h-screen overflow-hidden comic-section"
