@@ -69,9 +69,11 @@ export default function Footer() {
                     {/* Nav links */}
                     <div className="flex flex-wrap justify-center gap-4">
                         {[
-                            { href: '#shogun', label: 'Shogun', color: '#FFE000' },
-                            { href: '#kaaro', label: 'Kaaro', color: '#00CFFF' },
-                            { href: '#story', label: 'Tentang', color: '#FF2D2D' },
+                             
+                            { href: '#why', label: 'Why?', color: '#ffee00ff' },
+                            { href: '#products', label: 'Produk', color: '#FF2D2D' },
+                            { href: '#tentang', label: 'Tentang', color: '#00CFFF' },
+                         
                             { href: '#contact', label: 'Kontak', color: '#00C443' },
                         ].map((link) => (
                             <a
