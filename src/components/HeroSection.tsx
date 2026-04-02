@@ -76,23 +76,23 @@ export default function HeroSection() {
                         {/* Main headline */}
                         <div ref={headlineRef} className="overflow-hidden">
                             <h1 className="flex flex-col items-start gap-2">
-                                <div className="hero-word relative w-[280px] h-[70px] sm:w-[350px] sm:h-[90px] md:w-[450px] md:h-[120px] lg:w-[500px] lg:h-[140px] opacity-0">
-                                    <Image src="/LOGO/LOGO SHOGUN.jpg" alt="Shogun Logo" fill className="object-contain" priority />
+                                <div className="hero-word relative w-[300px] h-[85px] sm:w-[380px] sm:h-[110px] md:w-[480px] md:h-[140px] lg:w-[400px] lg:h-[130px] opacity-0">
+                                    <Image src="/new/shogun.png" alt="Shogun Logo" fill className="object-cover object-left  " priority />
                                 </div>
                                 <span className="hero-word block text-xl md:text-2xl text-[#1A1A1A] font-bold opacity-0 my-2 ml-4 md:ml-8"
                                     style={{ fontFamily: 'var(--font-bangers), Bangers, cursive' }}>
                                     - OR -
                                 </span>
-                                <div className="hero-word relative w-[300px] h-[80px] sm:w-[380px] sm:h-[100px] md:w-[500px] md:h-[140px] lg:w-[550px] lg:h-[160px] opacity-0">
-                                    <Image src="/LOGO/LOGO KAROO.png" alt="Kaaro Logo" fill className="object-contain" priority />
+                                <div className="hero-word relative w-[300px] h-[85px] sm:w-[380px] sm:h-[110px] md:w-[480px] md:h-[140px] lg:w-[400px] lg:h-[130px] opacity-0">
+                                    <Image src="/new/karo.png" alt="Kaaro Logo" fill className="object-cover object-left  " priority />
                                 </div>
-                            </h1>
+                            </h1>   
                         </div>
 
                         {/* Speech bubble subtitle */}
                         <div ref={subRef} className="speech-bubble px-5 py-4 max-w-md self-start opacity-0">
                             <div className="flex flex-col gap-2">
-                               
+
                                 <p className="text-[#1A1A1A] text-base md:text-xl leading-relaxed font-semibold"
                                     style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive' }}>
                                     Duo snack mie kremes renyah dengan karakter rasa yang berbeda, dengan sensasi <em className="text-[#FF2D2D]">crunchy</em> yang bikin nagih di setiap remesan.
