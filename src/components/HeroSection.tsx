@@ -86,7 +86,7 @@ export default function HeroSection() {
                                 <div className="hero-word relative w-[300px] h-[85px] sm:w-[380px] sm:h-[110px] md:w-[480px] md:h-[140px] lg:w-[300px] lg:h-[100px] opacity-0">
                                     <Image src="/new/karo.png" alt="Kaaro Logo" fill className="object-cover object-left  " priority />
                                 </div>
-                            </h1>   
+                            </h1>
                         </div>
 
                         {/* Speech bubble subtitle */}
@@ -103,7 +103,7 @@ export default function HeroSection() {
                         {/* CTA row */}
                         <div ref={ctaRef} className="flex flex-wrap gap-4 opacity-0">
                             <MagneticButton
-                                href="#shogun"
+                                href="#panel-1"
                                 as="a"
                                 className="comic-btn bg-yellow-500   px-7 py-3 text-xl rounded-none"
                                 style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em' } as React.CSSProperties}
@@ -111,7 +111,7 @@ export default function HeroSection() {
                                 🍜 SHOGUN!
                             </MagneticButton>
                             <MagneticButton
-                                href="#kaaro"
+                                href="#panel-2"
                                 as="a"
                                 className="comic-btn bg-red-500  px-7 py-3 text-xl rounded-none"
                                 style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em' } as React.CSSProperties}

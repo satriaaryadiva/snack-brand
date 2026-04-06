@@ -65,13 +65,30 @@ export default function MagneticButton({
         });
     };
 
+    const defaultOnClick = (e: React.MouseEvent) => {
+        if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href === '#' ? 'body' : href;
+            const target = targetId === 'body' ? document.body : document.querySelector(targetId);
+            
+            if (target) {
+                if ((window as any).lenis) {
+                    (window as any).lenis.scrollTo(target, { offset: -80 });
+                } else {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        }
+        if (onClick) onClick();
+    };
+
     const props = {
         ref: btnRef as React.Ref<HTMLElement>,
         className: `magnetic-btn relative overflow-visible ${className}`,
         style,
         onMouseMove: handleMouseMove,
         onMouseLeave: handleMouseLeave,
-        onClick,
+        onClick: defaultOnClick,
         ...(Tag === 'a' && { href, target, rel }),
     };
 

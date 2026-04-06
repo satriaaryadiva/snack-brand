@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import ShopeeButton from './ShopeeButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,6 +17,7 @@ const kaaroProducts = [
         weight: '90g',
         tag: '🇰🇷 Original',
         color: '#00CFFF',
+        shopeeLink: 'https://shopee.co.id/(Snack-Viral)-Kaaro-Spicy-Flavour-(1-inner-20-pcs)-1-bungkus-18-gram-i.1763634218.48556748540?extraParams=%7B%22display_model_id%22%3A302433498201%2C%22model_selection_logic%22%3A3%7D',
     },
     {
         img: '/FOTO PRODUCT/DSC00033.jpg',
@@ -25,6 +27,7 @@ const kaaroProducts = [
         weight: '90g',
         tag: '⭐ Premium',
         color: '#006FFF',
+        shopeeLink: 'https://shopee.co.id/(MIE-INSTANT)-KAARO-KOREAN-FRIED-NOODLE-(1-PACK-ISI-5-BUNGKUS)-i.1763634218.53507044760?extraParams=%7B%22display_model_id%22%3A297447744860%2C%22model_selection_logic%22%3A3%7D',
     },
     {
         img: '/FOTO PRODUCT/DSC00035.jpg',
@@ -34,6 +37,7 @@ const kaaroProducts = [
         weight: '90g',
         tag: '⚡ Instan',
         color: '#FF7A00',
+        shopeeLink: 'https://shopee.co.id/(Snack-Viral)-Kaaro-Spicy-Flavour-(1-inner-20-pcs)-1-bungkus-18-gram-i.1763634218.48556748540?extraParams=%7B%22display_model_id%22%3A302433498201%2C%22model_selection_logic%22%3A3%7D',
     },
 ];
 
@@ -171,20 +175,23 @@ export default function KaaroSection() {
                                     style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive', fontWeight: 700 }}>
                                     {product.desc}
                                 </p>
-                                <div className="flex items-center justify-between">
-                                    <span
-                                        className="text-xs font-bold px-3 py-1 border-2 border-[#1A1A1A]"
-                                        style={{ background: '#00CFFF', fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', boxShadow: '2px 2px 0 #1A1A1A' }}
-                                    >
-                                        {product.weight}
-                                    </span>
-                                    <a
-                                        href="#contact"
-                                        className="comic-btn comic-btn-cyan px-4 py-1.5 text-sm rounded-none"
-                                        style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em' }}
-                                    >
-                                        PESAN →
-                                    </a>
+                                <div className="flex flex-col gap-3">
+                                    <div className="flex items-center justify-between">
+                                        <span
+                                            className="text-xs font-bold px-3 py-1 border-2 border-[#1A1A1A]"
+                                            style={{ background: '#00CFFF', fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', boxShadow: '2px 2px 0 #1A1A1A' }}
+                                        >
+                                            {product.weight}
+                                        </span>
+                                        <a
+                                            href="#contact"
+                                            className="comic-btn comic-btn-cyan px-4 py-1.5 text-sm rounded-none"
+                                            style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em' }}
+                                        >
+                                            PESAN →
+                                        </a>
+                                    </div>
+                                    <ShopeeButton className="w-full" href={product.shopeeLink} />
                                 </div>
                             </div>
                         </div>

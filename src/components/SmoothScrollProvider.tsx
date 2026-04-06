@@ -23,6 +23,8 @@ export default function SmoothScrollProvider({ children }: SmoothScrollProviderP
         });
 
         lenisRef.current = lenis;
+        // Expose to window for global access (e.g. Navbar smooth scroll)
+        (window as any).lenis = lenis;
 
         function raf(time: number) {
             lenis.raf(time);

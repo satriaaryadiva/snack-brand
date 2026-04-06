@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import ShopeeButton from './ShopeeButton';
+import MagneticButton from './MagneticButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,6 +26,7 @@ const STORY_PANELS = [
         actionColor: '#FFE000',
         actionShadow: '#00C443',
         floatEmoji: ['🍜', '⭐', '🔥'],
+        shopeeLink: 'https://shopee.co.id/(Snack-Viral)-Shogun-Mie-Kremes-Chicken-Flavour-(1-inner-20-pcs)-18-gram-per-bungkus-i.1763634218.4725674218.4725674218.47256739061?extraParams=%7B%22display_model_id%22%3A435604313109%2C%22model_selection_logic%22%3A3%7D',
     },
     {
         id: 'panel-2',
@@ -41,6 +44,7 @@ const STORY_PANELS = [
         actionShadow: '#1A1A1A',
         floatEmoji: ['😋', '🇰🇷', '❗'],
         darkTheme: false,
+        shopeeLink: 'https://shopee.co.id/(Snack-Viral)-Kaaro-Spicy-Flavour-(1-inner-20-pcs)-1-bungkus-18-gram-i.1763634218.48556748540?extraParams=%7B%22display_model_id%22%3A302433498201%2C%22model_selection_logic%22%3A3%7D',
     },
     {
         id: 'panel-3',
@@ -57,6 +61,7 @@ const STORY_PANELS = [
         actionColor: '#00C443',
         actionShadow: '#1A1A1A',
         floatEmoji: ['🍤', '🦐', '💥'],
+        shopeeLink: 'https://shopee.co.id/(Snack-Viral)-Shogun-Rasa-Udang-Bakar-(1-inner-30-pcs.-1-pcs-15-gram)-i.1763634218.57006727823?extraParams=%7B%22display_model_id%22%3A287433394262%2C%22model_selection_logic%22%3A3%7D',
     },
     {
         id: 'panel-4',
@@ -73,6 +78,7 @@ const STORY_PANELS = [
         actionColor: '#FFE000',
         actionShadow: '#00C443',
         floatEmoji: ['🎉', '✨', '⚡'],
+        shopeeLink: 'https://shopee.co.id/(Snack-Viral)-Shogun-Mix-5-Aneka-Snack-(1-inner-30-pcs-)-1-bungkus-15-gram-i.1763634218.44506744300?extraParams=%7B%22display_model_id%22%3A420604446339%2C%22model_selection_logic%22%3A3%7D',
     },
     {
         id: 'panel-5',
@@ -90,6 +96,7 @@ const STORY_PANELS = [
         actionShadow: '#FFF',
         floatEmoji: ['🌶️', '🔥', '🏆'],
         darkTheme: true,
+        shopeeLink: 'https://shopee.co.id/(MIE-INSTANT)-KAARO-KOREAN-FRIED-NOODLE-(1-PACK-ISI-5-BUNGKUS)-i.1763634218.53507044760?extraParams=%7B%22display_model_id%22%3A297447744860%2C%22model_selection_logic%22%3A3%7D',
     },
 ];
 
@@ -109,6 +116,7 @@ export default function SnapStorySection() {
                 const floatEls = panel.querySelectorAll('.story-float');
                 const badgeEl = panel.querySelector('.story-badge');
                 const subEl = panel.querySelector('.story-sub');
+                const shopeeEl = panel.querySelector('.story-shopee');
 
                 // ── Entrance timeline (triggered when panel scrolls into view) ──
                 const tl = gsap.timeline({
@@ -138,6 +146,14 @@ export default function SnapStorySection() {
                 // Subtext fade
                 tl.fromTo(
                     subEl,
+                    { opacity: 0, y: 20 },
+                    { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
+                    '-=0.3'
+                );
+
+                // Shopee button fade
+                tl.fromTo(
+                    shopeeEl,
                     { opacity: 0, y: 20 },
                     { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
                     '-=0.3'
@@ -327,6 +343,31 @@ export default function SnapStorySection() {
                                     >
                                         {panel.subhead}
                                     </p>
+                                </div>
+
+                                {/* Action Buttons */}
+                                <div className="story-shopee opacity-0 flex flex-wrap gap-3">
+                                    {panel.id === 'panel-1' && (
+                                        <>
+                                            <MagneticButton
+                                                href="#panel-1"
+                                                as="a"
+                                                className="comic-btn bg-[#FFE000] px-4 py-2 text-sm md:text-base rounded-none whitespace-nowrap"
+                                                style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', boxShadow: '4px 4px 0 #1A1A1A' } as React.CSSProperties}
+                                            >
+                                                🍜 SHOGUN!
+                                            </MagneticButton>
+                                            <MagneticButton
+                                                href="#panel-2"
+                                                as="a"
+                                                className="comic-btn bg-[#FF2D2D] text-white px-4 py-2 text-sm md:text-base rounded-none whitespace-nowrap"
+                                                style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', boxShadow: '4px 4px 0 #1A1A1A' } as React.CSSProperties}
+                                            >
+                                                KAARO!
+                                            </MagneticButton>
+                                        </>
+                                    )}
+                                    <ShopeeButton href={panel.shopeeLink} />
                                 </div>
 
                                 {/* Floating emojis row */}

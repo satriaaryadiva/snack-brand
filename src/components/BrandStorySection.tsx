@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import ShopeeButton from './ShopeeButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -103,10 +104,11 @@ export default function BrandStorySection() {
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="flex flex-wrap gap-4 mt-8">
-                            <a href="#shogun" className="px-6 py-3 bg-[#FF2D2D] border-4 border-[#1A1A1A] text-white font-bold transform -rotate-2 hover:rotate-0 transition-transform" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.2rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
+                        <div className="flex items-center gap-3 mt-8">
+                            <a href="https://s.shopee.co.id/9fGYke5HNI" className="px-4 py-2.5 bg-[#FF2D2D] border-4 border-[#1A1A1A] text-white font-bold transform -rotate-2 hover:rotate-0 transition-transform whitespace-nowrap" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
                                 AYO COBA SEKARANG! 🏃‍♂️💨
                             </a>
+                         
                         </div>
                     </div>
 
