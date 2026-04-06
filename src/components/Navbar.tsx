@@ -11,6 +11,8 @@ export default function Navbar() {
     const [hidden, setHidden] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const lastScrollY = useRef(0);
+    const scrolledRef = useRef(false);
+    const hiddenRef = useRef(false);
 
     useEffect(() => {
         gsap.fromTo(
@@ -19,34 +21,57 @@ export default function Navbar() {
             { y: 0, opacity: 1, duration: 0.6, ease: 'back.out(1.4)', delay: 0.2 }
         );
 
-        let rafId: number;
-
-        const checkScroll = () => {
+        const handleScroll = () => {
             const currentScrollY = window.scrollY || document.documentElement.scrollTop;
 
             // Set scrolled state for background color change
-            setScrolled(currentScrollY > 40);
+            const isScrolled = currentScrollY > 40;
+            if (scrolledRef.current !== isScrolled) {
+                scrolledRef.current = isScrolled;
+                setScrolled(isScrolled);
+            }
 
             // Hide navbar when scrolling down, show when scrolling up
+            let isHidden = hiddenRef.current;
             if (currentScrollY <= 10) {
-                setHidden(false); // Make sure it's visible at the very top
+                isHidden = false; // Make sure it's visible at the very top
             } else if (currentScrollY > lastScrollY.current && currentScrollY > 100 && !menuOpen) {
-                setHidden(true); // Scrolling down
+                isHidden = true; // Scrolling down
             } else if (currentScrollY < lastScrollY.current) {
-                setHidden(false); // Scrolling up
+                isHidden = false; // Scrolling up
+            }
+
+            if (hiddenRef.current !== isHidden) {
+                hiddenRef.current = isHidden;
+                setHidden(isHidden);
             }
 
             lastScrollY.current = currentScrollY;
-            rafId = requestAnimationFrame(checkScroll);
         };
 
-        rafId = requestAnimationFrame(checkScroll);
-
-        return () => cancelAnimationFrame(rafId);
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
     }, [menuOpen]);
 
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        if (href.startsWith('#')) {
+            e.preventDefault();
+            const targetId = href === '#' ? 'body' : href;
+            const target = targetId === 'body' ? document.body : document.querySelector(targetId);
+            
+            if (target) {
+                if ((window as any).lenis) {
+                    (window as any).lenis.scrollTo(target, { offset: -80 });
+                } else {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+            setMenuOpen(false);
+        }
+    };
+
     const navLinks = [
-        { href: '#why', label: 'Why' },
+        { href: '#why', label: 'Why?' },
         { href: '#products', label: 'Produk' },
         { href: '#story', label: 'Tentang' },
         { href: '#contact', label: 'Kontak' },
@@ -63,7 +88,7 @@ export default function Navbar() {
         >
             <div className="max-w-7xl mx-auto px-4   flex items-center justify-between">
                 {/* Logo */}
-                <a href="#" className="flex items-center   group">
+                <a href="#" onClick={(e) => handleNavClick(e, '#')} className="flex items-center   group">
                     <div className="relative w-[120px] h-[36px] sm:w-[150px] sm:h-[45px] md:w-[100px] md:h-[54px] lg:w-[120px] lg:h-[60px]">
                         <Image src="/new/shogun.png" alt="Shogun Logo" fill className="object-contain scale-200" priority />
                     </div>
@@ -79,6 +104,7 @@ export default function Navbar() {
                         <a
                             key={link.href}
                             href={link.href}
+                            onClick={(e) => handleNavClick(e, link.href)}
                             className="px-4 py-1.5 text-sm font-bold text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-[#FFE000] transition-colors duration-150 border-2 border-transparent hover:border-[#1A1A1A] rounded-none"
                             style={{ fontFamily: 'var(--font-bangers), Bangers, Impact, cursive', letterSpacing: '0.08em', fontSize: '1rem' }}
                         >
@@ -119,7 +145,7 @@ export default function Navbar() {
                             href={link.href}
                             className="py-2 px-3 text-[#1A1A1A] font-bold border-b-2 border-[#1A1A1A]/20 hover:bg-[#FFE000] transition-colors"
                             style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem' }}
-                            onClick={() => setMenuOpen(false)}
+                            onClick={(e) => handleNavClick(e, link.href)}
                         >
                             {link.label}
                         </a>

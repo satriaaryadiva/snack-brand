@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import ShopeeButton from './ShopeeButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -164,18 +165,22 @@ export default function KaaroStorySection() {
                             </p>
                         </div>
 
-                        <div className="flex gap-4 mt-6">
+                        <div className="flex items-center gap-3 mt-6">
                             <a
                                 href="#products"
-                                className="comic-btn px-6 py-3 border-3 border-[#1A1A1A] bg-[#FFE000] text-[#1A1A1A] font-bold text-xl inline-flex gap-2"
+                                className="comic-btn px-4 py-2.5 border-3 border-[#1A1A1A] bg-[#FFE000] text-[#1A1A1A] font-bold text-lg inline-flex items-center gap-2 whitespace-nowrap"
                                 style={{
                                     fontFamily: 'var(--font-bangers), Bangers, cursive',
                                     letterSpacing: '0.1em',
-                                    boxShadow: '5px 5px 0 #1A1A1A'
+                                    boxShadow: '4px 4px 0 #1A1A1A'
                                 }}
                             >
                                 <span>📦</span> BORONG SEKARANG
                             </a>
+                            <ShopeeButton 
+                                className="scale-90 origin-left" 
+                                href="https://shopee.co.id/(Snack-Viral)-Kaaro-Spicy-Flavour-(1-inner-20-pcs)-1-bungkus-18-gram-i.1763634218.48556748540?extraParams=%7B%22display_model_id%22%3A302433498201%2C%22model_selection_logic%22%3A3%7D" 
+                            />
                         </div>
 
                     </div>

@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Image from 'next/image';
+import ShopeeButton from './ShopeeButton';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,7 @@ const shogunProducts = [
         tag: '🏆 Best Seller',
         color: '#FFE000',
         accent: '#FF7A00',
+        shopeeLink: 'https://shopee.co.id/(Snack-Viral)-Shogun-Mie-Kremes-Chicken-Flavour-(1-inner-20-pcs)-18-gram-per-bungkus-i.1763634218.4725674218.4725674218.47256739061?extraParams=%7B%22display_model_id%22%3A435604313109%2C%22model_selection_logic%22%3A3%7D',
     },
     {
         img: '/FOTO PRODUCT/DSC04355.jpg',
@@ -27,6 +29,7 @@ const shogunProducts = [
         tag: '🍤 Fan Fave',
         color: '#FF7A00',
         accent: '#FF2D2D',
+        shopeeLink: 'https://shopee.co.id/(Snack-Viral)-Shogun-Rasa-Udang-Bakar-(1-inner-30-pcs.-1-pcs-15-gram)-i.1763634218.57006727823?extraParams=%7B%22display_model_id%22%3A287433394262%2C%22model_selection_logic%22%3A3%7D',
     },
     {
         img: '/FOTO PRODUCT/DSC04424.jpg',
@@ -37,6 +40,7 @@ const shogunProducts = [
         tag: '🎉 Limited',
         color: '#00C443',
         accent: '#006FFF',
+        shopeeLink: 'https://shopee.co.id/(Snack-Viral)-Shogun-Mix-5-Aneka-Snack-(1-inner-30-pcs-)-1-bungkus-15-gram-i.1763634218.44506744300?extraParams=%7B%22display_model_id%22%3A420604446339%2C%22model_selection_logic%22%3A3%7D',
     },
 ];
 
@@ -161,20 +165,23 @@ export default function ShogunSection() {
                                     style={{ fontFamily: 'var(--font-comic-neue), Comic Neue, cursive', fontWeight: 700 }}>
                                     {product.desc}
                                 </p>
-                                <div className="flex items-center justify-between">
-                                    <span
-                                        className="text-xs font-bold px-3 py-1 border-2 border-[#1A1A1A]"
-                                        style={{ background: product.color, fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', boxShadow: '2px 2px 0 #1A1A1A' }}
-                                    >
-                                        {product.weight}
-                                    </span>
-                                    <a
-                                        href="#contact"
-                                        className="comic-btn comic-btn-yellow px-4 py-1.5 text-sm rounded-none"
-                                        style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em' }}
-                                    >
-                                        PESAN →
-                                    </a>
+                                <div className="flex flex-col gap-3">
+                                    <div className="flex items-center justify-between">
+                                        <span
+                                            className="text-xs font-bold px-3 py-1 border-2 border-[#1A1A1A]"
+                                            style={{ background: product.color, fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', boxShadow: '2px 2px 0 #1A1A1A' }}
+                                        >
+                                            {product.weight}
+                                        </span>
+                                        <a
+                                            href="#contact"
+                                            className="comic-btn comic-btn-yellow px-4 py-1.5 text-sm rounded-none"
+                                            style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em' }}
+                                        >
+                                            PESAN →
+                                        </a>
+                                    </div>
+                                    <ShopeeButton className="w-full" href={product.shopeeLink} />
                                 </div>
                             </div>
                         </div>
