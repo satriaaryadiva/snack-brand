@@ -103,20 +103,20 @@ export default function HeroSection() {
                         {/* CTA row */}
                         <div ref={ctaRef} className="flex flex-wrap gap-4 opacity-0">
                             <MagneticButton
-                                href="#panel-1"
+                                href="https://s.shopee.co.id/9fGYke5HNI"
                                 as="a"
                                 className="comic-btn bg-yellow-500   px-7 py-3 text-xl rounded-none"
                                 style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em' } as React.CSSProperties}
                             >
-                                🍜 SHOGUN!
+                                🍜 BELI SEKARANG  !!
                             </MagneticButton>
                             <MagneticButton
-                                href="#panel-2"
+                                href="#why"
                                 as="a"
-                                className="comic-btn bg-red-500  px-7 py-3 text-xl rounded-none"
+                                className="comic-btn bg-red-500  px-7 py-3 text-xl  rounded-none"
                                 style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em' } as React.CSSProperties}
                             >
-                                KAARO!
+                                WHY ?
                             </MagneticButton>
                             <MagneticButton
                                 href="#products"

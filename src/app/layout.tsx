@@ -35,6 +35,8 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
 };
 
+import SocialFAB from "@/components/SocialFAB";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -43,6 +45,7 @@ export default function RootLayout({
       <body className={`${bangers.variable} ${comicNeue.variable} font-body overflow-x-hidden max-w-[100vw] w-full`} suppressHydrationWarning>
         <SmoothScrollProvider>
           {children}
+          <SocialFAB />
         </SmoothScrollProvider>
       </body>
     </html>
