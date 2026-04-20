@@ -290,7 +290,7 @@ export default function SnapStorySection() {
                                 }`}
                         >
                             {/* ── LEFT: Text panel ── */}
-                            <div className="story-text flex flex-col gap-3 lg:gap-4 w-full">
+                            <div className="story-text flex flex-col gap-2 lg:gap-4 w-full">
                                 {/* Chapter badge */}
                                 <div
                                     className="story-badge inline-flex items-center self-start px-4 py-1.5 border-3 border-[#1A1A1A] text-sm font-bold opacity-0"
@@ -311,7 +311,7 @@ export default function SnapStorySection() {
                                         className="leading-[1.1]"
                                         style={{
                                             fontFamily: 'var(--font-bangers), Bangers, Impact, cursive',
-                                            fontSize: 'clamp(2.5rem, 6vw, 5.5rem)',
+                                            fontSize: 'clamp(2rem, 6vw, 5.5rem)',
                                             letterSpacing: '0.03em',
                                         }}
                                     >
@@ -371,7 +371,7 @@ export default function SnapStorySection() {
                                 </div>
 
                                 {/* Floating emojis row */}
-                                <div className="flex gap-4 mt-2">
+                                <div className="flex hidden md:flex gap-4 mt-2">
                                     {panel.floatEmoji.map((emoji, j) => (
                                         <span
                                             key={j}

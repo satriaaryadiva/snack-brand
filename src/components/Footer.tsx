@@ -35,6 +35,7 @@ export default function Footer() {
 
     return (
         <footer
+            id="footer"
             className="relative border-t-4 border-[#1A1A1A] py-10 overflow-hidden"
             style={{ background: '#1A1A1A' }}
         >

@@ -137,7 +137,8 @@ export default function TestimonialSection() {
     return (
         <section
             ref={sectionRef}
-            className="relative py-32 md:py-48 overflow-hidden comic-section"
+            id="testimonials"
+            className="relative py-20  overflow-hidden comic-section"
             style={{ background: '#FF2D2D' }} // Bold red background
         >
             {/* Sunburst background effect covering everything */}
@@ -166,7 +167,7 @@ export default function TestimonialSection() {
             <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12">
 
                 {/* Giant Comic Header */}
-                <div ref={titleGroupRef} className="text-center mb-20 md:mb-32 relative flex flex-col items-center">
+                <div ref={titleGroupRef} className="text-center mb-10 md:mb-32 relative flex flex-col items-center">
                     <div
                         className="inline-block px-10 py-5 border-4 border-[#1A1A1A] bg-[#FFE000] transform -rotate-3"
                         style={{ boxShadow: '12px 12px 0 #1A1A1A' }}

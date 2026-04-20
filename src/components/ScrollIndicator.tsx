@@ -55,14 +55,64 @@ export default function ScrollIndicator() {
         }, 600);
     };
 
+    const sectionIds = [
+        'home', 
+        'why', 
+        'story', 
+        'panel-1', 
+        'panel-2', 
+        'panel-3', 
+        'panel-4', 
+        'panel-5', 
+        'certifications', 
+        'testimonials', 
+        'contact', 
+        'footer'
+    ];
+
+    const getSections = () => {
+        return sectionIds
+            .map(id => {
+                const el = document.getElementById(id);
+                if (!el) return null;
+                const rect = el.getBoundingClientRect();
+                return { 
+                    el, 
+                    top: rect.top + window.scrollY 
+                };
+            })
+            .filter((s): s is { el: HTMLElement; top: number } => !!s)
+            .sort((a, b) => a.top - b.top);
+    };
+
     const scrollUp = (e: React.MouseEvent) => {
         createBurst(e);
-        window.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+        const sections = getSections();
+        const currentY = window.scrollY;
+        
+        // Find the section whose top is less than currentY (with some threshold)
+        const prevSection = [...sections].reverse().find(s => s.top < currentY - 100);
+        
+        if (prevSection) {
+            window.scrollTo({ top: prevSection.top - 80, behavior: 'smooth' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     };
 
     const scrollDown = (e: React.MouseEvent) => {
         createBurst(e);
-        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        const sections = getSections();
+        const currentY = window.scrollY;
+        
+        // Find the section whose top is greater than currentY
+        const nextSection = sections.find(s => s.top > currentY + 100);
+        
+        if (nextSection) {
+            window.scrollTo({ top: nextSection.top - 80, behavior: 'smooth' });
+        } else {
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+        }
     };
 
     const radius = 30;

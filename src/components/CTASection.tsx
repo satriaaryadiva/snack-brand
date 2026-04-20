@@ -27,7 +27,7 @@ export default function CTASection() {
         <section
             ref={sectionRef}
             id="contact"
-            className="relative comic-section h-[100vh] flex flex-col justify-center py-0 overflow-hidden"
+            className="relative comic-section min-h-screen flex flex-col justify-center py-20 md:py-32 overflow-hidden"
             style={{ background: '#FFE000' }}
         >
             {/* Halftone overlay */}

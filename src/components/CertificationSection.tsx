@@ -123,9 +123,9 @@ export default function CertificationSection() {
                 }}
             />
 
-            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-20">
+            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-25">
                 {/* Section Title */}
-                <div ref={titleRef} className="text-center mb-16 md:mb-24 flex flex-col items-center">
+                <div ref={titleRef} className="text-center mb-8  flex flex-col items-center">
                     <div
                         className="inline-block px-8 py-4 border-4 border-[#1A1A1A] bg-white transform -rotate-2"
                         style={{ boxShadow: '10px 10px 0 #1A1A1A' }}

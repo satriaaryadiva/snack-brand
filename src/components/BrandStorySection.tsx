@@ -63,7 +63,7 @@ export default function BrandStorySection() {
         <section
             ref={sectionRef}
             id="story"
-            className="comic-section h-[100vh] flex flex-col justify-center py-0 overflow-hidden"
+            className="comic-section min-h-screen flex flex-col justify-center pt-28 pb-44 md:py-32 overflow-hidden"
             style={{ background: '#FFFDF5' }}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,7 +108,7 @@ export default function BrandStorySection() {
                             <a href="https://s.shopee.co.id/9fGYke5HNI" className="px-4 py-2.5 bg-[#FF2D2D] border-4 border-[#1A1A1A] text-white font-bold transform -rotate-2 hover:rotate-0 transition-transform whitespace-nowrap" style={{ fontFamily: 'var(--font-bangers), Bangers, cursive', letterSpacing: '0.08em', fontSize: '1.1rem', boxShadow: '4px 4px 0 #1A1A1A' }}>
                                 AYO COBA SEKARANG! 🏃‍♂️💨
                             </a>
-                         
+
                         </div>
                     </div>
 

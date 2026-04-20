@@ -90,11 +90,11 @@ export default function Navbar() {
                 {/* Logo */}
                 <a href="#" onClick={(e) => handleNavClick(e, '#')} className="flex items-center   group">
                     <div className="relative w-[120px] h-[36px] sm:w-[150px] sm:h-[45px] md:w-[100px] md:h-[54px] lg:w-[120px] lg:h-[60px]">
-                        <Image src="/new/shogun.png" alt="Shogun Logo" fill className="object-contain scale-200" priority />
+                        <Image src="/new/shogun.png" alt="Shogun Logo" fill className="object-contain scale-200" priority sizes="120px" />
                     </div>
                      <span className="text-[#FF2D2D] font-black text-4xl  ">×</span>
                     <div className="relative w-[130px] h-[39px] sm:w-[165px] sm:h-[48px] md:w-[200px] md:h-[58px] lg:w-[120px] lg:h-[60px]">
-                        <Image src="/new/karo.png" alt="Kaaro Logo" fill className="object-contain scale-200" priority />
+                        <Image src="/new/karo.png" alt="Kaaro Logo" fill className="object-contain scale-200" priority sizes="130px" />
                     </div>
                 </a>
 

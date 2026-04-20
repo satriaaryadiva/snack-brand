@@ -27,6 +27,7 @@
 
 html {
   scroll-behavior: auto;
+  scroll-padding-top: 5rem;
 }
 
 *,
@@ -203,6 +204,12 @@ body {
 .comic-section {
   border-top: 4px solid var(--comic-ink);
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .comic-section {
+    padding-bottom: 8rem !important; /* Extra space for Social FAB */
+  }
 }
 
 /* ─── Speed lines (radial burst) ─── */
